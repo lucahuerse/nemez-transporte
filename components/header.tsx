@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import CTAButton from "./cta-button"
 
 export function Header() {
   return (
@@ -25,7 +26,7 @@ export function Header() {
           </Link>
         </nav>
 
-        <Button className="hidden md:inline-flex">Jetzt unverbindlich anfragen</Button>
+        <CTAButton primaryText="Jetzt Angebot einholen!" className="hidden md:inline-flex bg-white hover:bg-white/90"/>
       </div>
     </header>
   )

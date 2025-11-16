@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import CtaButton from "@/components/cta-button"
+import CTAButton from "@/components/cta-button"
 
 export function HeroSection() {
   return (
@@ -20,11 +20,11 @@ export function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4">
-          <CtaButton primaryText="Jetzt Angebot einholen!" secondaryText="100% unverbindlich" />
+          <CTAButton primaryText="Jetzt Angebot einholen!" secondaryText="100% unverbindlich" />
           <Button
             size="lg"
             variant="outline"
-            className="border-2 border-white text-white hover:bg-white/10 bg-transparent font-medium px-8 h-[60px] rounded-lg"
+            className="border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent bg-transparent font-medium px-8 h-[60px] rounded-lg"
           >
             Mehr erfahren
           </Button>

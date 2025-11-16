@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 
-type CtaButtonProps = {
+type CTAButtonProps = {
   primaryText: string;
-  secondaryText: string;
+  secondaryText?: string;
+
   className?: string;
 };
 
-export function CtaButton({
+export function CTAButton({
     primaryText,
     secondaryText,
     className,
@@ -18,7 +19,7 @@ export function CtaButton({
     return (
         <Button
             size="lg"
-            className={`bg-accent hover:bg-accent-hover hover:cursor-pointer text-black font-semibold px-8 py-4 h-[60px] flex flex-col items-center justify-center gap-0 rounded-lg ${className ?? ""}`}
+            className={`bg-accent hover:bg-accent-hover hover:cursor-pointer text-black font-semibold px-12 py-4 h-[60px] flex flex-col items-center justify-center gap-0 rounded-lg ${className ?? ""}`}
         >
             <span className="text-base leading-tight">{primaryText}</span>
             {secondaryText ? <span className="text-xs font-normal leading-tight">{secondaryText}</span> : null}
@@ -26,4 +27,4 @@ export function CtaButton({
     );
 }
 
-export default CtaButton;
+export default CTAButton;
