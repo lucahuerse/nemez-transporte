@@ -1,22 +1,23 @@
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
+import Link from "next/link"
 
 export function HelpSection() {
   const services = [
     {
       image: "/images/kleintransport.webp",
       title: "Kleintransport",
-      href: "#kleintransport",
+      href: "/kleintransport",
     },
     {
       image: "/images/umzug.webp",
       title: "Umzugsservice",
-      href: "#umzug",
+      href: "/umzug",
     },
     {
       image: "/images/entruempelung.webp",
       title: "Entrümpelung",
-      href: "#entrumpelung",
+      href: "/entrumpelung",
     },
   ]
 
@@ -28,21 +29,28 @@ export function HelpSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <Card key={index} className="pt-0 cursor-pointer overflow-hidden group">
-              <CardContent className="p-0">
-                <div className="relative h-64 w-full overflow-hidden">
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6 bg-white text-center">
-                  <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
-                </div>
-              </CardContent>
-            </Card>
+            <Link
+              key={index}
+              href={service.href || "#"}
+              className="block group"
+              aria-label={`${service.title} — öffnen`}
+            >
+              <Card className="py-0 overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="relative h-64 w-full overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-6 bg-white text-center">
+                    <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>

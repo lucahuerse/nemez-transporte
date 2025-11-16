@@ -7,24 +7,28 @@ export function ServicesSection() {
       description:
         "Wir holen Ihre Möbel, Kartons oder Waren direkt bei Ihnen ab und liefern sie sicher und termingerecht an den gewünschten Ort. Für Privatpersonen und Gewerbe.",
       image: "/images/kleintransport.webp",
+      href: "/kleintransport"
     },
     {
       title: "Expresslieferungen",
       description:
         "Wenn es schnell gehen muss, sind wir zur Stelle. Wir übernehmen eilige Direktfahrten deutschlandweit und liefern zuverlässig noch am selben Tag.",
       image: "/images/express.webp",
+      href: "/kleintransport"
     },
     {
       title: "Umzugsservice",
       description:
         "Egal ob Wohnung, Haus oder Büro, wir planen und begleiten Ihren Umzug vom ersten Karton bis zur letzten Schraube. Freundlich, ordentlich und mit Erfahrung.",
       image: "/images/umzug.webp",
+      href: "/umzug"
     },
     {
       title: "Entrümpelungen",
       description:
         "Wir helfen Ihnen dabei, schnell und sauber Platz zu schaffen. Vom Keller bis zum Dachboden übernehmen wir die komplette Räumung und Entsorgung.",
       image: "/images/entruempelung.webp",
+      href: "/entruempelung"
     },
   ]
 
