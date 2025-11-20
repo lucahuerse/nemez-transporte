@@ -20,7 +20,7 @@ export function CTASection() {
             </p>
 
             <div className="flex justify-center mb-8">
-              <CTAButton primaryText="Jetzt kostenlos Angebot anfordern" />
+              <CTAButton primaryText="Jetzt kostenlos Angebot anfordern" className="max-w-xs sm:max-w-md" />
             </div>
 
             <div className="flex flex-col items-center gap-2 text-lg">
