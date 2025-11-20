@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import CTAButton from "@/components/cta-button"
 
@@ -12,22 +11,16 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 text-balance">
-          Ihr Partner für Transporte und Umzüge
+        <h1 className="text-4xl leading-tight md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-6 text-balance">
+          Transporte und Umzüge in Stuttgart und Umgebung
         </h1>
-        <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto text-balance">
+        <p className="text-lg md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
           Ob Expresslieferung, Umzug oder komplette Haushaltsauflösung - wir denken mit!
         </p>
 
         <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4">
           <CTAButton primaryText="Jetzt Angebot einholen!" secondaryText="100% unverbindlich" />
-          <Button
-            size="lg"
-            variant="outline"
-            className="border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent bg-transparent font-medium px-8 h-[60px] rounded-lg"
-          >
-            Mehr erfahren
-          </Button>
+          <CTAButton primaryText="Mehr erfahren" className="bg-transparent border border-white/40 text-white hover:baorder-white hover:text-white hover:bg-transparent font-medium px-8 h-14 rounded-sm" />
         </div>
       </div>
     </section>
