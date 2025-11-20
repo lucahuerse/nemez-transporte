@@ -24,8 +24,8 @@ export function HelpSection() {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Wie können wir Ihnen helfen?</h2>
-        <p className="text-muted-foreground text-center mb-12">Wählen Sie die gewünschte Dienstleistung aus.</p>
+        <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-center">Wie können wir Ihnen helfen?</h2>
+        <p className="text-lg text-muted-foreground text-center mb-12">Wählen Sie die gewünschte Dienstleistung aus.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
@@ -45,7 +45,7 @@ export function HelpSection() {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <div className="p-6 bg-white text-center">
+                  <div className="p-6 text-center" style={{ backgroundColor: '#f2f2f2' }}>
                     <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
                   </div>
                 </CardContent>
