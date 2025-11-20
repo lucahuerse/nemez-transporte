@@ -15,18 +15,21 @@ export function Header() {
           <Link href="#leistungen" className="text-white hover:text-accent transition-colors">
             Leistungen
           </Link>
-          <Link href="#uber-uns" className="text-white hover:text-accent transition-colors">
-            Über uns
+          <Link href="#kleintransporte" className="text-white hover:text-accent transition-colors">
+            Kleintransporte
           </Link>
-          <Link href="#faq" className="text-white hover:text-accent transition-colors">
-            FAQ
+          <Link href="#umzug" className="text-white hover:text-accent transition-colors">
+            Umzüge
+          </Link>
+          <Link href="#entrumpelung" className="text-white hover:text-accent transition-colors">
+            Entrümpelungen
           </Link>
           <Link href="#kontakt" className="text-white hover:text-accent transition-colors">
             Kontakt
           </Link>
         </nav>
 
-        <CTAButton primaryText="Jetzt Angebot einholen!" className="hidden md:inline-flex bg-white hover:bg-white/90"/>
+        <CTAButton primaryText="Jetzt Angebot einholen!" className="hidden md:inline-flex bg-white hover:bg-white/90" />
       </div>
     </header>
   )
