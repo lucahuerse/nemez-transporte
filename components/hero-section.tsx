@@ -11,14 +11,14 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
-        <h1 className="text-4xl leading-tight md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-6 text-balance">
+        <h1 className="text-4xl leading-tight md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-6 text-balance animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
           Transporte und Umzüge in Stuttgart und Umgebung
         </h1>
-        <p className="text-lg md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
+        <p className="text-lg md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 fill-mode-both">
           Ob Expresslieferung, Umzug oder komplette Haushaltsauflösung - wir denken mit!
         </p>
 
-        <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500 fill-mode-both">
           <CTAButton primaryText="Jetzt Angebot einholen!" secondaryText="100% unverbindlich" />
           <CTAButton primaryText="Mehr erfahren" className="bg-transparent border border-white/40 text-white hover:baorder-white hover:text-white hover:bg-transparent font-medium px-8 h-14 rounded-sm" />
         </div>
