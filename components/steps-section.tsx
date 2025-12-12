@@ -28,16 +28,19 @@ export function StepsSection() {
   return (
     <section id="process" className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="relative border-l border-foreground/30 ml-4 md:ml-12 pl-8 md:pl-16 space-y-24">
+        <div className="relative border-l-2 border-foreground/30 ml-4 md:ml-12 pl-8 md:pl-16 space-y-24">
           {steps.map((step, index) => (
-            <div key={index} className="relative">
-               {/* Marker */}
-               <div className="absolute -left-[41px] md:-left-[73px] top-3 bg-foreground w-4 h-4 md:w-5 md:h-5 rounded-sm ring-4 ring-background" />
+            <div key={index} className="relative pl-0">
+               {/* Marker Container - Absolute wrapper to define the track for this step */}
+               <div className="absolute -left-[41px] md:-left-[75px] top-0 h-full w-4 md:w-5 flex flex-col justify-start">
+                  {/* Sticky Marker */}
+                  <div className="sticky top-1/2 -translate-y-1/2 bg-foreground w-4 h-4 md:w-5 md:h-5 rounded-sm ring-4 ring-background z-10 mt-6" />
+               </div>
                
                {/* Content */}
                <div className="space-y-6">
                  <div>
-                    <span className="text-5xl md:text-6xl font-bold block leading-none mb-2">{step.number}</span>
+                    <span className="text-5xl md:text-5xl font-bold block leading-none mb-2">{step.number}</span>
                     <h3 className="text-2xl md:text-3xl font-bold">{step.title}</h3>
                  </div>
                  <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">{step.description}</p>
