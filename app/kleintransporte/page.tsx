@@ -14,7 +14,16 @@ export const metadata = {
 export default function KleintransportePage() {
   return (
     <main>
-      <Header theme="dark" />
+      <Header 
+        theme="dark" 
+        navItems={[
+          { label: "Ablauf", href: "#process" },
+          { label: "Preise", href: "#pricing" },
+          { label: "FAQ", href: "#faq" }
+        ]}
+        ctaText="Jetzt Angebot anfordern" 
+        ctaHref="#contact-form"
+      />
       <ServiceHero
         title="Kleintransporte in Stuttgart und Umgebung"
         subtitle="Wir bieten Ihnen professionelle Dienstleistungen für Kleintransporte, um Ihnen den Transport von sperrigen Gegenständen oder Kleinigkeiten, die nicht in einen herkömmlichen PKW passen, zu erleichtern."

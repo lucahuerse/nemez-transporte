@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export function FounderSection() {
   return (
-    <section className="py-20 bg-background">
+    <section id="founder" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-[auto_1fr] gap-8 items-start">

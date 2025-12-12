@@ -33,7 +33,7 @@ export function ServicesSection() {
   ]
 
   return (
-    <section id="leistungen" className="py-20 bg-[#e8f4f8]">
+    <section id="services" className="py-20 bg-[#e8f4f8]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Unsere Leistungen auf einen Blick</h2>

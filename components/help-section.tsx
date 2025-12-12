@@ -22,7 +22,7 @@ export function HelpSection() {
   ]
 
   return (
-    <section className="py-20 bg-background">
+    <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-center">Wie können wir Ihnen helfen?</h2>
         <p className="text-lg text-muted-foreground text-center mb-12">Wählen Sie die gewünschte Dienstleistung aus.</p>

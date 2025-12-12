@@ -11,7 +11,17 @@ import { Footer } from "@/components/footer"
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Header theme="light" />
+      <Header 
+        theme="light" 
+        navItems={[
+          { label: "Leistungen", href: "#services" },
+          { label: "Kleintransporte", href: "/kleintransporte" },
+          { label: "Über uns", href: "#founder" },
+          { label: "FAQ", href: "#faq" }
+        ]}
+        ctaText="Jetzt unverbindlich anfragen"
+        ctaHref="#contact"
+      />
       <HeroSection />
       <ServicesSection />
       <AboutSection />

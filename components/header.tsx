@@ -4,11 +4,28 @@ import { Button } from "@/components/ui/button"
 import CTAButton from "./cta-button"
 import { cn } from "@/lib/utils"
 
-interface HeaderProps {
-    theme?: 'light' | 'dark'
+interface NavItem {
+  label: string
+  href: string
 }
 
-export function Header({ theme = 'light' }: HeaderProps) {
+interface HeaderProps {
+  theme?: 'light' | 'dark'
+  navItems?: NavItem[]
+  ctaText?: string
+  ctaHref?: string
+}
+
+export function Header({ 
+  theme = 'light',
+  navItems = [
+    { href: "/", label: "Ablauf" }, 
+    { href: "/", label: "Preise" }, 
+    { href: "/", label: "FAQ" }
+  ],
+  ctaText = "Jetzt unverbindlich anfragen!",
+  ctaHref
+}: HeaderProps) {
   const isLight = theme === 'light'
   const textColor = isLight ? "text-white" : "text-foreground"
   const hoverColor = isLight ? "hover:text-accent" : "hover:text-primary/70"
@@ -23,11 +40,7 @@ export function Header({ theme = 'light' }: HeaderProps) {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-           {[
-             { href: "/", label: "Ablauf" }, 
-             { href: "/", label: "Preise" }, 
-             { href: "/", label: "FAQ" }
-           ].map((link) => (
+           {navItems.map((link) => (
              <Link 
                key={link.label}
                href={link.href} 
@@ -40,7 +53,8 @@ export function Header({ theme = 'light' }: HeaderProps) {
 
         {/* CTA Button */}
         <CTAButton 
-          primaryText="Jetzt unverbindlich anfragen!" 
+          primaryText={ctaText}
+          href={ctaHref}
           className={cn(
             "hidden md:inline-flex shadow-none border-0",
              isLight 

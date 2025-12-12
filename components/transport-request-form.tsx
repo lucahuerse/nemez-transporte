@@ -9,7 +9,7 @@ import * as React from "react"
 
 export function TransportRequestForm() {
   return (
-    <section className="py-20 bg-background" id="contact">
+    <section className="py-20 bg-background" id="contact-form">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="bg-card rounded-2xl p-8 md:p-12 shadow-none border dark:border-border">
           <div className="text-center mb-12">

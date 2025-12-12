@@ -22,7 +22,7 @@ export function StepsSection() {
   ]
 
   return (
-    <section className="py-20 bg-background">
+    <section id="process" className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="space-y-16">
           {steps.map((step, index) => (
