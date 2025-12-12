@@ -1,44 +1,106 @@
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { Phone } from "lucide-react"
+import CTAButton from "./cta-button" // Ensuring we use the requested component
+import { Button } from "@/components/ui/button" // Keeping for the secondary/icon button if CTAButton is too rigid, or using it if possible.
 
 export function StepsSection() {
   const steps = [
     {
       number: "01",
       title: "Anfrage",
-      description: "Kontaktieren Sie uns telefonisch oder über unser Online-Formular. Wir besprechen Ihr Anliegen und erstellen ein unverbindliches Angebot.",
+      description: "Sie senden uns Ihre Anfrage über das Formular und wir melden uns innerhalb von 24 Stunden zur Termin- und Leistungsabstimmung.",
+      details: ["Kurzes Telefonat", "Klärung von Termin & Strecke"]
     },
     {
       number: "02",
       title: "Planung",
-      description: "Wir planen gemeinsam mit Ihnen den Ablauf und stimmen den Termin ab. Unsere Experten beraten Sie gerne zu allen Details.",
-      image: "/images/kleintransport.webp" // Placeholder, maybe redundant but adds visual interest
+      description: "Wir bereiten den Transport vor: Route, Zeitplan und benötigtes Equipment. Alles transparent und ohne Überraschungen.",
+      images: ["/images/step-planning-1.png", "/images/step-planning-2.jpg"]
     },
     {
       number: "03",
       title: "Durchführung",
-      description: "Unser Team erscheint pünktlich zum vereinbarten Termin und führt den Transport zuverlässig und sicher durch.",
+      description: "Wir erscheinen pünktlich, erledigen den Transport zuverlässig und bestätigen gemeinsam die Übergabe.",
+      details: ["Sicherer Transport", "Abschluss & Zahlung", "buttons"] // Using a marker for buttons layout
     }
   ]
 
   return (
     <section id="process" className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="space-y-16">
+        <div className="relative border-l border-foreground/30 ml-4 md:ml-12 pl-8 md:pl-16 space-y-24">
           {steps.map((step, index) => (
-            <div key={index} className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-shrink-0">
-                 <span className="text-6xl font-bold text-foreground block md:w-24 leading-none">{step.number}</span>
-              </div>
-              <div className="flex-1 space-y-4">
-                 <h3 className="text-2xl font-bold">{step.title}</h3>
-                 <p className="text-muted-foreground text-lg leading-relaxed">{step.description}</p>
-                 {step.image && (
-                   <div className="mt-4 relative h-64 w-full md:w-2/3 overflow-hidden rounded-lg">
-                      <Image src={step.image} alt="Step Image" fill className="object-cover" />
+            <div key={index} className="relative">
+               {/* Marker */}
+               <div className="absolute -left-[41px] md:-left-[73px] top-3 bg-foreground w-4 h-4 md:w-5 md:h-5 rounded-sm ring-4 ring-background" />
+               
+               {/* Content */}
+               <div className="space-y-6">
+                 <div>
+                    <span className="text-5xl md:text-6xl font-bold block leading-none mb-2">{step.number}</span>
+                    <h3 className="text-2xl md:text-3xl font-bold">{step.title}</h3>
+                 </div>
+                 <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">{step.description}</p>
+                 
+                 {/* Bullet Points / Details */}
+                 {step.details && !step.details.includes("buttons") && (
+                   <ul className="space-y-3 pt-2">
+                     {step.details.map((detail, idx) => (
+                       <li key={idx} className="flex items-center gap-3">
+                         <span className="bg-black text-white p-0.5 rounded-sm flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                         </span>
+                         <span className="font-medium text-lg">{detail}</span>
+                       </li>
+                     ))}
+                   </ul>
+                 )}
+
+                 {/* Step 3 Specific Layout (Details + Buttons) */}
+                 {step.details && step.details.includes("buttons") && (
+                    <div className="space-y-8">
+                       <ul className="space-y-3 pt-2">
+                         {step.details.filter(d => d !== "buttons").map((detail, idx) => (
+                           <li key={idx} className="flex items-center gap-3">
+                             <span className="bg-black text-white p-0.5 rounded-sm flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                             </span>
+                             <span className="font-medium text-lg">{detail}</span>
+                           </li>
+                         ))}
+                       </ul>
+                       <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                           <CTAButton 
+                               primaryText="Jetzt Anfrage senden" 
+                               href="#contact-form"
+                               className="bg-[#1a1a1a] text-white hover:bg-[#333] w-full sm:w-auto px-8"
+                           />
+                           <Button 
+                               asChild
+                               variant="outline" 
+                               size="lg" 
+                               className="h-14 px-8 text-base font-semibold border-2 w-full sm:w-auto"
+                           >
+                               <a href="tel:01622618418">
+                                   <Phone className="mr-2 h-5 w-5" />
+                                   Telefonisch kontaktieren
+                               </a>
+                           </Button>
+                       </div>
+                    </div>
+                 )}
+
+                 {/* Images for Step 2 */}
+                 {step.images && (
+                   <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {step.images.map((imgSrc, imgIdx) => (
+                        <div key={imgIdx} className="relative h-64 w-full overflow-hidden rounded-2xl">
+                           <Image src={imgSrc} alt={`Step image ${imgIdx + 1}`} fill className="object-cover" />
+                        </div>
+                      ))}
                    </div>
                  )}
-              </div>
+               </div>
             </div>
           ))}
         </div>
