@@ -7,7 +7,7 @@ export function HelpSection() {
     {
       image: "/images/kleintransport.webp",
       title: "Kleintransport",
-      href: "/kleintransport",
+      href: "/kleintransporte",
     },
     {
       image: "/images/umzug.webp",

@@ -7,14 +7,14 @@ export function ServicesSection() {
       description:
         "Wir holen Ihre Möbel, Kartons oder Waren direkt bei Ihnen ab und liefern sie sicher und termingerecht an den gewünschten Ort. Für Privatpersonen und Gewerbe.",
       image: "/images/kleintransport.webp",
-      href: "/kleintransport"
+      href: "/kleintransporte"
     },
     {
       title: "Expresslieferungen",
       description:
         "Wenn es schnell gehen muss, sind wir zur Stelle. Wir übernehmen eilige Direktfahrten deutschlandweit und liefern zuverlässig noch am selben Tag.",
       image: "/images/express.webp",
-      href: "/kleintransport"
+      href: "/kleintransporte"
     },
     {
       title: "Umzugsservice",
