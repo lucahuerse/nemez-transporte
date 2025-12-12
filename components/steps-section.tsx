@@ -72,23 +72,18 @@ export function StepsSection() {
                            </li>
                          ))}
                        </ul>
-                       <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                       <div className="flex flex-col sm:flex-row gap-3 pt-4">
                            <CTAButton 
                                primaryText="Jetzt Anfrage senden" 
                                href="#contact-form"
                                className="bg-[#1a1a1a] text-white hover:bg-[#333] w-full sm:w-auto px-8"
                            />
-                           <Button 
-                               asChild
-                               variant="outline" 
-                               size="lg" 
-                               className="h-14 px-8 text-base font-semibold border-2 w-full sm:w-auto"
-                           >
-                               <a href="tel:01622618418">
-                                   <Phone className="mr-2 h-5 w-5" />
-                                   Telefonisch kontaktieren
-                               </a>
-                           </Button>
+                           <CTAButton 
+                               primaryText="Telefonisch kontaktieren" 
+                               href="tel:01621218418"
+                               icon={Phone}
+                               className="bg-transparent border border-black/40 text-black hover:border-black/10 hover:text-black hover:bg-transparent font-medium px-6 h-14 rounded-sm"
+                           />
                        </div>
                     </div>
                  )}
