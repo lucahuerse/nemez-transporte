@@ -22,7 +22,7 @@ export function AboutSection() {
           </div>
 
           <div>
-            <h2 className="text-3xl md:text-3xl font-bold mb-6">Ein Familienbetrieb mit Herz und Verstand</h2>
+            <h2 className="text-3xl md:text-3xl font-semibold mb-6">Ein Familienbetrieb mit Herz und Verstand</h2>
             <div className="space-y-6 text-secondary-foreground/90 text-lg border-b border-muted-foreground/30 pb-10 max-w-2xl">
               <p>
                 Seit vielen Jahren sind wir im Transport- und Kurierbereich tätig. Als Direktkurier haben wir uns als

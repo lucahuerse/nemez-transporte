@@ -17,8 +17,8 @@ export function FounderSection() {
             </div>
 
             <div>
-              <p className="text-md font-bold text-muted-foreground mb-2">Geschäftsführer</p>
-              <h2 className="text-5xl font-bold mb-6">Mustafa Nemez</h2>
+              <p className="text-md font-semibold text-muted-foreground mb-2">Geschäftsführer</p>
+              <h2 className="text-5xl font-semibold mb-6">Mustafa Nemez</h2>
               <blockquote className="text-xl text-muted-foreground leading-relaxed space-y-4 border-l-2 border-black pl-6">
                 <p>
                   <strong className="text-foreground">Jeder kennt es!</strong> Die zu transportierende Fracht ist zu sperrig und für den normalen

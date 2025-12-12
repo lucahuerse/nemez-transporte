@@ -40,8 +40,8 @@ export function StepsSection() {
                {/* Content */}
                <div className="space-y-6">
                  <div>
-                    <span className="text-5xl md:text-5xl font-bold block leading-none mb-2">{step.number}</span>
-                    <h3 className="text-2xl md:text-3xl font-bold">{step.title}</h3>
+                    <span className="text-5xl md:text-5xl font-semibold block leading-none mb-2">{step.number}</span>
+                    <h3 className="text-2xl md:text-3xl font-semibold">{step.title}</h3>
                  </div>
                  <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">{step.description}</p>
                  

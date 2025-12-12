@@ -6,7 +6,7 @@ export function PricingSection() {
     <section id="pricing" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Unsere Preise für Kleintransporte</h2>
+            <h2 className="text-4xl font-semibold mb-4">Unsere Preise für Kleintransporte</h2>
             <p className="text-muted-foreground">Fair, transparent und ohne versteckte Kosten.</p>
         </div>
 

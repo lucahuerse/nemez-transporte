@@ -13,7 +13,7 @@ export function TransportRequestForm() {
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="bg-card rounded-2xl p-8 md:p-12 shadow-none border dark:border-border">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3 tracking-tight">Transportanfrage stellen</h2>
+            <h2 className="text-3xl font-semibold mb-3 tracking-tight">Transportanfrage stellen</h2>
             <p className="text-muted-foreground text-lg">
               Beantworte uns ein paar Fragen und wir melden uns schnellstmöglich mit einem Preis zurück.
             </p>

@@ -11,7 +11,7 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
-        <h1 className="text-4xl leading-tight md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-6 text-balance animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
+        <h1 className="text-4xl leading-tight md:text-4xl lg:text-[64px] font-semibold text-primary-foreground mb-6 text-balance animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
           Transporte und Umzüge in Stuttgart und Umgebung
         </h1>
         <p className="text-lg md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 fill-mode-both">
