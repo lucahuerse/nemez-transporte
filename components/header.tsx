@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import CTAButton from "./cta-button"
 import { cn } from "@/lib/utils"
+import { MobileNav } from "./mobile-nav"
 
 interface NavItem {
   label: string
@@ -39,7 +40,7 @@ export function Header({
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+        <nav className="hidden lg:flex items-center justify-center gap-8 flex-1 px-4">
            {navItems.map((link) => (
              <Link 
                key={link.label}
@@ -51,17 +52,27 @@ export function Header({
            ))}
         </nav>
 
-        {/* CTA Button */}
-        <CTAButton 
-          primaryText={ctaText}
-          href={ctaHref}
-          className={cn(
-            "hidden md:inline-flex shadow-none border-0",
-             isLight 
-                ? "bg-white text-black hover:bg-white/90" 
-                : "bg-[#1a1a1a] text-white hover:bg-[#333]"
-          )} 
-        /> 
+        <div className="flex items-center gap-4">
+            {/* CTA Button */}
+            <CTAButton 
+              primaryText={ctaText}
+              href={ctaHref}
+              className={cn(
+                "hidden lg:inline-flex shadow-none border-0",
+                 isLight 
+                    ? "bg-white text-black hover:bg-white/90" 
+                    : "bg-[#1a1a1a] text-white hover:bg-[#333]"
+              )} 
+            /> 
+
+            {/* Mobile Navigation */}
+            <MobileNav 
+                navItems={navItems} 
+                ctaText={ctaText}
+                ctaHref={ctaHref}
+                isLight={isLight}
+            />
+        </div>
       </div>
     </header>
   )
