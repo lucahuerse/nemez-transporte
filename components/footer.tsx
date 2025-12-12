@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Instagram } from "lucide-react"
+import { Phone, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -46,7 +46,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4 text-lg">Leistungen</h3>
             <ul className="space-y-4 text-sm">
-              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/kleintransport">Kleintransporte</Link></li>
+              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/kleintransporte">Kleintransporte</Link></li>
               <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/umzug">Umzugsservice</Link></li>
               <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/entrumpelung">Entrümpelungen</Link></li>
             </ul>
