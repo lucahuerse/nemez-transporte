@@ -10,7 +10,7 @@ interface ServiceHeroProps {
 
 export function ServiceHero({ title, subtitle, image, imageAlt }: ServiceHeroProps) {
   return (
-    <section className="py-12 md:py-24 bg-[#e8f4f8] dark:bg-muted/10">
+    <section className="py-12 md:py-24 bg-[#e8f4f8] dark:bg-muted/10 min-h-[100dvh] flex items-center">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
           {/* Text Content */}

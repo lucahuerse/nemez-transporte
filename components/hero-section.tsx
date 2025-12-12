@@ -3,7 +3,7 @@ import CTAButton from "@/components/cta-button"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center justify-center pt-20">
+    <section className="relative min-h-[100dvh] flex items-center justify-center pt-20">
       <div className="absolute inset-0 z-0">
         <Image fetchPriority="high" src="/images/hero-van.webp" alt="Nemez Transporte Van" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-primary/70" />
