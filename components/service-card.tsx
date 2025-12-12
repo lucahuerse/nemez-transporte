@@ -25,7 +25,7 @@ export function ServiceCard({ title, description, image, href }: ServiceCardProp
       <CardContent className="p-8 flex-grow flex flex-col">
         <h2 className="text-3xl font-bold mb-3">{title}</h2>
         <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">{description}</p>
-        <CTAButton primaryText="Mehr erfahren" className="w-min" />
+        <CTAButton primaryText="Mehr erfahren" className="w-min" href={href} />
       </CardContent>
     </Card>
   )
