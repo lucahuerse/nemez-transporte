@@ -26,7 +26,7 @@ export function CTAButton({
     const content = (
         <span className="flex items-center justify-center gap-3">
             {Icon && <Icon className="w-5 h-5 fill-current" />}
-            <span className="flex flex-col items-start justify-center gap-0">
+            <span className="flex flex-col justify-center gap-0">
                 <span className="text-base leading-tight">{primaryText}</span>
                 {secondaryText ? <span className="text-xs font-normal leading-tight">{secondaryText}</span> : null}
             </span>
