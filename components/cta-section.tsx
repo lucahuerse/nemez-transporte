@@ -13,7 +13,7 @@ export function CTASection() {
           </div>
 
           <div className="relative z-10 py-20 px-6 text-center">
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-balance">Wir kümmern uns um Ihr Anliegen!</h2>
+            <h2 className="text-4xl sm:text-5xl font-semibold mb-6 text-balance">Wir kümmern uns um Ihr Anliegen!</h2>
             <p className="text-lg text-primary-foreground/90 mb-8 max-w-4xl mx-auto">
               Wir sind ein familiengeführtes Unternehmen aus Stuttgart-Weilimdorf mit langjähriger Erfahrung. Ob Umzug,
               Entrümpelung oder Kleintransport, bei uns kommt alles aus einer Hand.

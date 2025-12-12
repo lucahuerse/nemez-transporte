@@ -15,7 +15,7 @@ export function ServiceHero({ title, subtitle, image, imageAlt }: ServiceHeroPro
         <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
           {/* Text Content */}
           <div className="flex-1 text-left">
-            <h1 className="text-4xl md:text-5xl font-semibold mb-6 text-foreground leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-semibold mb-6 text-foreground leading-tight">
               {title}
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
