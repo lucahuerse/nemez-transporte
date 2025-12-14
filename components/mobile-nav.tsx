@@ -4,8 +4,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
+import CTAButton from "./cta-button"
 
 interface NavItem {
   label: string
@@ -22,6 +24,9 @@ interface MobileNavProps {
 export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProps) {
   const [open, setOpen] = useState(false)
 
+  // Explicitly use white logo for the mobile menu as requested
+  const logoSrc = "/images/logo-white.webp"
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
@@ -29,31 +34,52 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
           variant="ghost" 
           size="icon" 
           className={cn(
-            "lg:hidden", 
+            "lg:hidden size-12", 
             isLight ? "text-white hover:bg-white/10" : "text-foreground hover:bg-black/5"
           )}
         >
-          <Menu className="h-6 w-6" />
+          <Menu className="size-8 stroke-[1.5]" />
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="bg-background border-l">
-        <nav className="flex flex-col gap-6 mt-8">
+      <SheetContent 
+        side="top" 
+        className="bg-black border-none text-white p-0 [&>button]:text-white [&>button]:top-6 [&>button]:right-4 [&>button>svg]:w-8 [&>button>svg]:h-8 [&>button>svg]:stroke-[1.5]"
+      >
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+             <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
+                <Image 
+                    src={logoSrc} 
+                    alt="Nemez Transporte" 
+                    width={180} 
+                    height={50} 
+                    className="h-12 w-auto" 
+                    priority 
+                />
+            </Link>
+        </div>
+
+        <nav className="flex flex-col gap-6 px-4 pb-8 mt-2">
+          <div className="flex flex-col gap-6 p">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-lg font-medium transition-colors hover:text-primary"
+              className="text-lg font-medium transition-colors text-white hover:text-white/80"
               onClick={() => setOpen(false)}
             >
               {item.label}
             </Link>
           ))}
           {ctaText && ctaHref && (
-            <Link href={ctaHref} onClick={() => setOpen(false)}>
-               <Button className="w-full mt-4 font-semibold">{ctaText}</Button>
-            </Link>
+            <CTAButton 
+                primaryText={ctaText} 
+                href={ctaHref} 
+                className="w-fit"
+                onClick={() => setOpen(false)}
+            />
           )}
+          </div>
         </nav>
       </SheetContent>
     </Sheet>

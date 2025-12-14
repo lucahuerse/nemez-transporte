@@ -16,12 +16,14 @@ export function CTAButton({
     className,
     href,
     icon: Icon,
+    onClick,
 }: {
     primaryText: string;
     secondaryText?: string;
     className?: string;
     href?: string;
     icon?: React.ElementType;
+    onClick?: () => void;
 }) {
     const content = (
         <span className="flex items-center justify-center gap-3">
@@ -40,7 +42,7 @@ export function CTAButton({
                 size="lg"
                 className={cn("bg-accent hover:bg-accent-hover hover:cursor-pointer text-black font-semibold px-12 py-4 h-14 rounded-sm", className)}
             >
-                <Link href={href}>
+                <Link href={href} onClick={onClick}>
                     {content}
                 </Link>
             </Button>
@@ -51,6 +53,7 @@ export function CTAButton({
         <Button
             size="lg"
             className={cn("bg-accent hover:bg-accent-hover hover:cursor-pointer text-black font-semibold px-12 py-4 h-14 flex flex-col items-center justify-center gap-0 rounded-sm", className)}
+            onClick={onClick}
         >
             {content}
         </Button>
