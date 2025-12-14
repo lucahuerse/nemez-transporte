@@ -44,7 +44,7 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
       </SheetTrigger>
       <SheetContent 
         side="top" 
-        className="bg-black border-none text-white p-0 [&>button]:text-white [&>button]:top-6 [&>button]:right-4 [&>button>svg]:w-8 [&>button>svg]:h-8 [&>button>svg]:stroke-[1.5]"
+        className="bg-black border-none text-white p-0 [&>button]:text-white [&>button]:top-6 [&>button]:right-4 [&>button>svg]:w-8 [&>button>svg]:h-8 [&>button>svg]:stroke-[1.5] [&>button]:focus:!ring-0 [&>button]:focus:!ring-offset-0 [&>button]:focus:!outline-none [&>button]:focus:!border-none"
       >
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
              <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
@@ -75,7 +75,7 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
             <CTAButton 
                 primaryText={ctaText} 
                 href={ctaHref} 
-                className="w-fit"
+                className="sm:w-fit w-full"
                 onClick={() => setOpen(false)}
             />
           )}
