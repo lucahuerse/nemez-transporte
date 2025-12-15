@@ -11,16 +11,22 @@ const CustomSelectGroup = SelectPrimitive.Group
 
 const CustomSelectValue = SelectPrimitive.Value
 
+interface CustomSelectTriggerProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {
+  error?: boolean
+}
+
 const CustomSelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+  CustomSelectTriggerProps
+>(({ className, children, error, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-auto w-full items-center justify-between rounded-lg border border-[#d1d5db] bg-white px-4 py-3.5 text-base text-foreground placeholder:text-[#9ca3af] transition-all",
-      "hover:border-[#6b7280] hover:shadow-[0_0_0_1px_#6b7280]",
-      "focus:border-[#6b7280] focus:shadow-[0_0_0_1px_#6b7280] focus:outline-none",
+      "flex h-auto w-full items-center justify-between rounded-lg border bg-white px-4 py-3.5 text-base text-foreground placeholder:text-[#9ca3af] transition-all",
+      error
+        ? "border-red-500 shadow-[0_0_0_1px_#ef4444]"
+        : "border-[#d1d5db] hover:border-[#6b7280] hover:shadow-[0_0_0_1px_#6b7280] focus:border-[#6b7280] focus:shadow-[0_0_0_1px_#6b7280] focus:outline-none",
       "disabled:cursor-not-allowed disabled:opacity-50",
       "[&>span]:line-clamp-1",
       className

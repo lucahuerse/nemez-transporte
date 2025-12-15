@@ -2,17 +2,19 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 export interface CustomTextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  error?: boolean
+}
 
 const CustomTextarea = React.forwardRef<HTMLTextAreaElement, CustomTextareaProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, error, ...props }, ref) => {
     return (
       <textarea
         className={cn(
-          "flex min-h-[120px] w-full rounded-lg border border-[#d1d5db] bg-white px-4 py-3.5 text-base text-foreground placeholder:text-[#9ca3af] transition-all resize-y",
-          "hover:border-[#6b7280] hover:shadow-[0_0_0_1px_#6b7280]",
-          "focus:border-[#6b7280] focus:shadow-[0_0_0_1px_#6b7280] focus:outline-none",
-          "disabled:cursor-not-allowed disabled:opacity-50",
+          "flex min-h-[120px] w-full rounded-lg border bg-white px-4 py-3.5 text-base text-foreground placeholder:text-[#9ca3af] disabled:cursor-not-allowed disabled:opacity-50 resize-y transition-all",
+          error
+            ? "border-red-500 shadow-[0_0_0_1px_#ef4444]"
+            : "border-[#d1d5db] hover:border-[#6b7280] hover:shadow-[0_0_0_1px_#6b7280] focus:border-[#6b7280] focus:shadow-[0_0_0_1px_#6b7280] focus:outline-none",
           className
         )}
         ref={ref}
