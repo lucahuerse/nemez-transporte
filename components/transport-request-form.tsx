@@ -4,10 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { CustomInput } from "@/components/ui/custom-input"
 import { CustomTextarea } from "@/components/ui/custom-textarea"
+import { CustomPhoneInput } from "@/components/ui/custom-phone-input"
 import { CustomSelect, CustomSelectContent, CustomSelectItem, CustomSelectTrigger, CustomSelectValue } from "@/components/ui/custom-select"
 import * as React from "react"
 
 export function TransportRequestForm() {
+  const [phoneNumber, setPhoneNumber] = React.useState<string>()
+
   return (
     <section className="py-20 bg-background" id="contact-form">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -36,12 +39,11 @@ export function TransportRequestForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="phone" className="text-base font-medium">Telefon</Label>
-                <div className="relative">
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center z-10">
-                    <span className="text-xl leading-none">🇩🇪</span>
-                  </div>
-                  <CustomInput id="phone" type="tel" placeholder="Geben Sie Ihre Telefonnummer ein" className="pl-14" />
-                </div>
+                <CustomPhoneInput 
+                  value={phoneNumber}
+                  onChange={setPhoneNumber}
+                  placeholder="Geben Sie Ihre Telefonnummer ein"
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="service" className="text-base font-medium">Welchen Service benötigen Sie?</Label>
