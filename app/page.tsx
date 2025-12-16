@@ -14,8 +14,15 @@ export default function Home() {
       <Header 
         theme="light" 
         navItems={[
-          { label: "Leistungen", href: "#services" },
-          { label: "Kleintransporte", href: "/kleintransporte" },
+          { 
+            label: "Leistungen", 
+            href: "#",
+            children: [
+              { label: "Kleintransporte", href: "/kleintransporte" },
+              { label: "Umzüge", href: "/umzug" },
+              { label: "Entrümpelungen", href: "/entruempelung" },
+            ]
+          },
           { label: "Über uns", href: "#founder" },
           { label: "FAQ", href: "#faq" }
         ]}

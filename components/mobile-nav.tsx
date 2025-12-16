@@ -8,10 +8,17 @@ import Image from "next/image"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 import CTAButton from "./cta-button"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 interface NavItem {
   label: string
   href: string
+  children?: NavItem[]
 }
 
 interface MobileNavProps {
@@ -62,14 +69,38 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
         <nav className="flex flex-col gap-6 px-4 pb-8 mt-2">
           <div className="flex flex-col gap-6 p">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-lg font-medium transition-colors text-white hover:text-white/80"
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </Link>
+            item.children ? (
+              <Accordion type="single" collapsible key={item.label} className="w-full border-b-0">
+                <AccordionItem value={item.label} className="border-b-0">
+                  <AccordionTrigger className="text-lg font-medium text-white hover:text-white/80 py-0 hover:no-underline">
+                    {item.label}
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="flex flex-col gap-4 pl-4 pt-4">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="text-base text-white/80 hover:text-white transition-colors"
+                          onClick={() => setOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-lg font-medium transition-colors text-white hover:text-white/80"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
           {ctaText && ctaHref && (
             <CTAButton 

@@ -4,10 +4,18 @@ import { Button } from "@/components/ui/button"
 import CTAButton from "./cta-button"
 import { cn } from "@/lib/utils"
 import { MobileNav } from "./mobile-nav"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { ChevronDown } from "lucide-react"
 
 interface NavItem {
   label: string
   href: string
+  children?: NavItem[]
 }
 
 interface HeaderProps {
@@ -42,13 +50,31 @@ export function Header({
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center justify-center gap-8 flex-1 px-4">
            {navItems.map((link) => (
-             <Link 
-               key={link.label}
-               href={link.href} 
-               className={cn("text-base font-medium transition-colors", textColor, hoverColor)}
-             >
-               {link.label}
-             </Link>
+             link.children ? (
+               <DropdownMenu key={link.label}>
+                 <DropdownMenuTrigger className={cn("flex items-center gap-1 text-base font-medium transition-colors outline-none", textColor, hoverColor)}>
+                   {link.label}
+                   <ChevronDown className="h-4 w-4" />
+                 </DropdownMenuTrigger>
+                 <DropdownMenuContent align="center" className="bg-white dark:bg-black">
+                   {link.children.map((child) => (
+                     <DropdownMenuItem key={child.label} asChild>
+                       <Link href={child.href} className="w-full cursor-pointer">
+                         {child.label}
+                       </Link>
+                     </DropdownMenuItem>
+                   ))}
+                 </DropdownMenuContent>
+               </DropdownMenu>
+             ) : (
+               <Link 
+                 key={link.label}
+                 href={link.href} 
+                 className={cn("text-base font-medium transition-colors", textColor, hoverColor)}
+               >
+                 {link.label}
+               </Link>
+             )
            ))}
         </nav>
 
