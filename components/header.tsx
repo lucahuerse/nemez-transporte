@@ -52,14 +52,14 @@ export function Header({
            {navItems.map((link) => (
              link.children ? (
                <DropdownMenu key={link.label}>
-                 <DropdownMenuTrigger className={cn("flex items-center gap-1 text-base font-medium transition-colors outline-none", textColor, hoverColor)}>
+                 <DropdownMenuTrigger className={cn("flex items-center gap-1 text-base font-medium transition-colors outline-none hover:cursor-pointer", textColor, hoverColor)}>
                    {link.label}
                    <ChevronDown className="h-4 w-4" />
                  </DropdownMenuTrigger>
-                 <DropdownMenuContent align="center" className="bg-white dark:bg-black">
+                 <DropdownMenuContent align="start" className="bg-transparent backdrop-blur-sm border border-white/20 min-w-[200px] p-2">
                    {link.children.map((child) => (
-                     <DropdownMenuItem key={child.label} asChild>
-                       <Link href={child.href} className="w-full cursor-pointer">
+                     <DropdownMenuItem key={child.label} asChild className="text-base py-3 px-4 cursor-pointer text-white focus:bg-white/20 focus:text-white">
+                       <Link href={child.href}>
                          {child.label}
                        </Link>
                      </DropdownMenuItem>
