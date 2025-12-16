@@ -28,15 +28,15 @@ export function Footer() {
             <h3 className="font-semibold mb-4 text-lg">Kontakt</h3>
             <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-accent" />
+                <Phone className="h-4 w-4 text-accent shrink-0" />
                 <Link href="tel:01622618418" className="hover:text-accent transition-colors text-primary-foreground/80">0162 2618418</Link>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-accent" />
+                <Mail className="h-4 w-4 text-accent shrink-0" />
                 <Link href="mailto:info@nemez-transporte.de" className="hover:text-accent transition-colors text-primary-foreground/80">info@nemez-transporte.de</Link>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-accent" />
+                <MapPin className="h-4 w-4 text-accent shrink-0" />
                 <Link href="https://www.google.com/maps/place/Beim+Fasanengarten+44,+70499+Stuttgart" className="hover:text-accent transition-colors text-primary-foreground/80">Beim Fasanengarten 44, 70499 Stuttgart</Link>
               </li>
             </ul>
