@@ -60,7 +60,7 @@ export function Footer() {
           <div className="hidden md:block">
             <h3 className="font-semibold mb-4 text-lg">Socials</h3>
             <ul className="space-y-4 text-sm">
-              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="https://www.instagram.com/nemez_transporte/">Instagram</Link></li>
+              <li className="flex items-center gap-2 text-primary-foreground/80"><Instagram className="h-4 w-4 text-accent shrink-0" /><Link className="hover:text-accent transition-colors" href="https://www.instagram.com/nemez_transporte/">Instagram</Link></li>
             </ul>
           </div>
         </div>
