@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, Instagram } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -39,11 +39,15 @@ export function Footer() {
                 <MapPin className="h-4 w-4 text-accent shrink-0" />
                 <Link href="https://www.google.com/maps/place/Beim+Fasanengarten+44,+70499+Stuttgart" className="hover:text-accent transition-colors text-primary-foreground/80">Beim Fasanengarten 44, 70499 Stuttgart</Link>
               </li>
+              <li className="flex items-center gap-2 md:hidden">
+                <Instagram className="h-4 w-4 text-accent shrink-0" />
+                <Link href="https://www.instagram.com/nemez_transporte/" className="hover:text-accent transition-colors text-primary-foreground/80">Instagram</Link>
+              </li>
             </ul>
           </div>
 
           {/* Services */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="font-semibold mb-4 text-lg">Leistungen</h3>
             <ul className="space-y-4 text-sm">
               <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/kleintransporte">Kleintransporte</Link></li>
@@ -53,7 +57,7 @@ export function Footer() {
           </div>
 
           {/* Socials */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="font-semibold mb-4 text-lg">Socials</h3>
             <ul className="space-y-4 text-sm">
               <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="https://www.instagram.com/nemez_transporte/">Instagram</Link></li>
