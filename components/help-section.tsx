@@ -149,7 +149,7 @@ export function HelpSection() {
                 {step === 2 && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="text-left mb-12">
-                            <h2 className="text-4xl sm:text-5xl font-semibold mb-3 tracking-tight text-center">
+                            <h2 className="text-4xl sm:text-5xl font-semibold mb-3 tracking-tight text-center break-words hyphens-auto">
                                 {selectedService === "kleintransport" ? "Transportanfrage stellen" :
                                  selectedService === "umzug" ? "Umzugsanfrage stellen" :
                                  selectedService === "entruempelung" ? "Entrümpelungsanfrage stellen" : 
