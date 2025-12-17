@@ -1,14 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import React from "react";
 
-type CTAButtonProps = {
+interface CTAButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     primaryText: string;
     secondaryText?: string;
-
-    className?: string;
-};
-
-import Link from "next/link";
+    href?: string;
+    icon?: React.ElementType;
+    variant?: "primary" | "outline";
+}
 
 export function CTAButton({
     primaryText,
@@ -17,14 +18,10 @@ export function CTAButton({
     href,
     icon: Icon,
     onClick,
-}: {
-    primaryText: string;
-    secondaryText?: string;
-    className?: string;
-    href?: string;
-    icon?: React.ElementType;
-    onClick?: () => void;
-}) {
+    variant = "primary",
+    type = "button",
+    ...props
+}: CTAButtonProps) {
     const content = (
         <span className="flex items-center justify-center gap-3">
             {Icon && <Icon className="w-5 h-5 fill-current" />}
@@ -35,14 +32,20 @@ export function CTAButton({
         </span>
     );
 
+    const baseStyles = "hover:cursor-pointer font-semibold px-12 py-4 h-14 rounded-sm transition-all";
+    const variantStyles = {
+        primary: "bg-accent hover:bg-accent-hover text-black border-none w-fit",
+        outline: "bg-transparent border-2 border-input hover:bg-transparent backdrop-blur-sm border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent font-medium px-12 h-14 rounded-sm"
+    };
+
     if (href) {
         return (
             <Button
                 asChild
                 size="lg"
-                className={cn("bg-accent hover:bg-accent-hover hover:cursor-pointer text-black font-semibold px-12 py-4 h-14 rounded-sm", className)}
+                className={cn(baseStyles, variantStyles[variant], className)}
             >
-                <Link href={href} onClick={onClick}>
+                <Link href={href}>
                     {content}
                 </Link>
             </Button>
@@ -52,8 +55,10 @@ export function CTAButton({
     return (
         <Button
             size="lg"
-            className={cn("bg-accent hover:bg-accent-hover hover:cursor-pointer text-black font-semibold px-12 py-4 h-14 flex flex-col items-center justify-center gap-0 rounded-sm", className)}
+            type={type}
+            className={cn(baseStyles, variantStyles[variant], "flex flex-col items-center justify-center gap-0", className)}
             onClick={onClick}
+            {...props}
         >
             {content}
         </Button>

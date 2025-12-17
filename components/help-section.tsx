@@ -55,11 +55,6 @@ export function HelpSection() {
         
         {/* Main "White Frame" Container */}
         <div className="max-w-5xl mx-auto bg-card rounded-2xl p-8 md:p-12 min-h-[600px] flex flex-col">
-            
-            {/* Header INSIDE the frame */}
-            <h2 className="text-4xl sm:text-5xl font-semibold mb-4 text-center">Wie können wir Ihnen helfen?</h2>
-            <p className="text-lg text-muted-foreground text-center mb-12">Wählen Sie die gewünschte Dienstleistung aus.</p>
-
             {/* Top Progress Bar */}
             <StepProgress 
                 currentStep={step} 
@@ -73,6 +68,11 @@ export function HelpSection() {
 
             <div className="flex-grow">
                 {step === 1 && (
+                  <div>
+                    <div className="text-left mb-12">
+                      <h2 className="text-4xl sm:text-5xl font-semibold mb-4 text-center">Wie können wir Ihnen helfen?</h2>
+                      <p className="text-lg text-muted-foreground text-center mb-12">Wählen Sie die gewünschte Dienstleistung aus.</p>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
                     {services.map((service, index) => (
                         <div
@@ -98,12 +98,21 @@ export function HelpSection() {
                         </div>
                     ))}
                     </div>
+                  </div>
                 )}
 
                 {step === 2 && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <div className="text-center mb-8">
-                            <h3 className="text-2xl font-semibold mb-2">{services.find(s => s.value === selectedService)?.title}</h3>
+                        <div className="text-left mb-12">
+                            <h2 className="text-4xl sm:text-5xl font-semibold mb-3 tracking-tight text-center">
+                                {selectedService === "kleintransport" ? "Transportanfrage stellen" :
+                                 selectedService === "umzug" ? "Umzugsanfrage stellen" :
+                                 selectedService === "entruempelung" ? "Entrümpelungsanfrage stellen" : 
+                                 "Anfrage stellen"}
+                            </h2>
+                            <p className="text-muted-foreground text-lg text-center">
+                                Beantworte uns ein paar Fragen und wir melden uns schnellstmöglich mit einem Preis zurück.
+                            </p>
                         </div>
                         <TransportRequestForm 
                             defaultService={selectedService} 

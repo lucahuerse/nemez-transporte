@@ -20,7 +20,7 @@ export function HeroSection() {
 
         <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500 fill-mode-both">
           <CTAButton primaryText="Jetzt Angebot einholen!" secondaryText="100% unverbindlich" href="#contact"/>
-          <CTAButton primaryText="Mehr erfahren" href="#services" className="bg-transparent backdrop-blur-sm border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent font-medium px-8 h-14 rounded-sm" />
+          <CTAButton variant="outline" primaryText="Mehr erfahren" href="#services"/>
         </div>
       </div>
     </section>

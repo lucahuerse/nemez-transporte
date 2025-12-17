@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils"
 
 import { Button } from "@/components/ui/button"
+import { CTAButton } from "@/components/cta-button"
 import { Label } from "@/components/ui/label"
 import { CustomInput } from "@/components/ui/custom-input"
 import { CustomTextarea } from "@/components/ui/custom-textarea"
@@ -197,22 +198,23 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
           <ErrorMessage error={errors.message} className="-bottom-6" />
         </div>
 
-        {/* Submit Button */}
-        <div className="pt-2 flex gap-4">
-          {onBack && (
-            <Button 
-              type="button" 
-              variant="outline" 
-              onClick={onBack}
-              className="h-12 px-8 text-base font-semibold"
-            >
-              Zurück
-            </Button>
-          )}
-          <Button type="submit" className="bg-[#f8d24a] text-black hover:bg-[#e4c145] h-12 px-8 text-base font-semibold shadow-none hover:cursor-pointer rounded-md flex-1 md:flex-none">
-            Anfrage absenden
-          </Button>
-        </div>
+            {/* Submit Button */}
+            <div className="pt-2 flex flex-col sm:flex-row gap-4">
+              {onBack && (
+                <CTAButton 
+                  primaryText="Zurück"
+                  variant="outline"
+                  onClick={onBack}
+                  className="w-fit text-foreground border-border hover:text-foreground hover:border-foreground"
+                />
+              )}
+              <CTAButton 
+                primaryText="Anfrage absenden"
+                variant="primary"
+                type="submit"
+                className="w-fit"
+              />
+            </div>
       </form>
     </>
   )
