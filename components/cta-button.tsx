@@ -24,15 +24,18 @@ export function CTAButton({
 }: CTAButtonProps) {
     const content = (
         <span className="flex items-center justify-center gap-3">
-            {Icon && <Icon className="w-5 h-5 fill-current" />}
-            <span className="flex flex-col justify-center gap-0">
-                <span className="text-base leading-tight">{primaryText}</span>
-                {secondaryText ? <span className="text-xs font-normal leading-tight">{secondaryText}</span> : null}
-            </span>
+            {Icon && <Icon className="w-5 h-5" />}
+            {primaryText && (
+                <span className="flex flex-col justify-center gap-0">
+                    <span className="text-base leading-tight">{primaryText}</span>
+                    {secondaryText ? <span className="text-xs font-normal leading-tight">{secondaryText}</span> : null}
+                </span>
+            )}
         </span>
     );
 
-    const baseStyles = "hover:cursor-pointer font-semibold px-6 sm:px-12 py-4 h-14 rounded-sm transition-all";
+    const paddingClasses = Icon ? "px-6" : "px-6 sm:px-10";
+    const baseStyles = `hover:cursor-pointer font-semibold ${paddingClasses} py-4 h-14 rounded-sm transition-all`;
     const variantStyles = {
         primary: "bg-accent hover:bg-accent-hover text-black border-none w-fit",
         outline: "bg-transparent border-2 border-input hover:bg-transparent backdrop-blur-sm border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent font-medium h-14 rounded-sm"

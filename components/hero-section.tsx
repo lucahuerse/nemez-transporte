@@ -19,7 +19,7 @@ export function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500 fill-mode-both">
-          <CTAButton primaryText="Jetzt Angebot einholen!" secondaryText="100% unverbindlich" href="#contact"/>
+          <CTAButton primaryText="Jetzt Angebot einholen!" secondaryText="100% unverbindlich" href="#contact" className="w-full sm:w-fit"/>
           <CTAButton variant="outline" primaryText="Mehr erfahren" href="#services"/>
         </div>
       </div>

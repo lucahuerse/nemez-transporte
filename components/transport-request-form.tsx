@@ -10,6 +10,8 @@ import { CustomTextarea } from "@/components/ui/custom-textarea"
 import { CustomPhoneInput } from "@/components/ui/custom-phone-input"
 import { CustomSelect, CustomSelectContent, CustomSelectItem, CustomSelectTrigger, CustomSelectValue } from "@/components/ui/custom-select"
 import { Switch } from "@/components/ui/switch"
+import { ArrowLeft } from "lucide-react"
+import { Send } from "lucide-react"
 import * as React from "react"
 import { z } from "zod"
 import { useForm, Controller } from "react-hook-form"
@@ -242,21 +244,34 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
           <ErrorMessage error={errors.message} className="-bottom-6" />
         </div>
 
-            {/* Submit Button */}
-            <div className="pt-2 flex flex-col sm:flex-row gap-4">
-              {onBack && (
-                <CTAButton 
-                  primaryText="Zurück"
-                  variant="outline"
-                  onClick={onBack}
-                  className="w-fit text-foreground border-border hover:text-foreground hover:border-foreground"
-                />
+        <div className="pt-2 flex flex-row gap-4">
+          {onBack && (
+            <>
+              {/* Mobile Back Button (Square Icon) */}
+                  <CTAButton 
+                    primaryText=""
+                    icon={ArrowLeft}
+                    variant="outline"
+                    onClick={onBack}
+                    className="sm:hidden p-0 h-14 w-14 shrink-0 text-foreground border-border hover:text-foreground hover:border-foreground"
+                  />
+
+                  {/* Desktop Back Button (Text) */}
+                  <CTAButton 
+                    primaryText="Zurück"
+                    icon={ArrowLeft}
+                    variant="outline"
+                    onClick={onBack}
+                    className="hidden sm:flex w-fit text-foreground border-border hover:text-foreground hover:border-foreground"
+                  />
+                </>
               )}
               <CTAButton 
                 primaryText="Anfrage absenden"
+                icon={Send}
                 variant="primary"
                 type="submit"
-                className="w-fit"
+                className="flex-1 w-full max-w-sm sm:w-fit sm:flex-none sm:max-w-none"
               />
             </div>
       </form>
