@@ -28,7 +28,7 @@ const CustomPhoneInput = React.forwardRef<HTMLInputElement, CustomPhoneInputProp
             "flex w-full rounded-lg border bg-white px-4 py-3.5 text-base text-foreground placeholder:text-[#9ca3af] transition-all",
             error
               ? "border-red-500 shadow-[0_0_0_1px_#ef4444]"
-              : "border-[#d1d5db] hover:border-[#6b7280] hover:shadow-[0_0_0_1px_#6b7280] focus:border-[#6b7280] focus:shadow-[0_0_0_1px_#6b7280] focus:outline-none",
+              : "border-[#d1d5db] hover:border-[#d1d5db] hover:shadow-[0_0_0_1px_#d1d5db] focus:border-[#f8d24a] focus:shadow-[0_0_0_1px_#f8d24a] focus:outline-none",
             "disabled:cursor-not-allowed disabled:opacity-50"
           ),
         }}
