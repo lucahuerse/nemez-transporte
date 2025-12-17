@@ -23,7 +23,7 @@ export default function Home() {
               { label: "Entrümpelungen", href: "/entruempelung" },
             ]
           },
-          { label: "Über uns", href: "#founder" },
+          { label: "Über uns", href: "#uber-uns" },
           { label: "FAQ", href: "#faq" }
         ]}
         ctaText="Jetzt unverbindlich anfragen"
