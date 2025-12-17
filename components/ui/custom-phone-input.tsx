@@ -13,6 +13,25 @@ export interface CustomPhoneInputProps {
   error?: boolean
 }
 
+const CustomFlagComponent = ({ country, countryName }: { country: string, countryName: string }) => {
+  if (country === 'DE') {
+    return (
+      <svg viewBox="0 0 5 5" style={{ width: '100%', height: '100%', display: 'block' }}>
+        <rect width="5" height="2" y="0" fill="#000000"/>
+        <rect width="5" height="2" y="1.66" fill="#DD0000"/>
+        <rect width="5" height="2" y="3.33" fill="#FFCE00"/>
+      </svg>
+    )
+  }
+  return (
+    <img 
+      src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`} 
+      alt={countryName} 
+      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+    />
+  )
+}
+
 const CustomPhoneInput = React.forwardRef<HTMLInputElement, CustomPhoneInputProps>(
   ({ className, placeholder, value, onChange, error, ...props }, ref) => {
     return (
@@ -22,6 +41,7 @@ const CustomPhoneInput = React.forwardRef<HTMLInputElement, CustomPhoneInputProp
         value={value}
         onChange={onChange as any}
         placeholder={placeholder}
+        flagComponent={CustomFlagComponent}
         className={cn("custom-phone-input", className)}
         numberInputProps={{
           className: cn(
