@@ -58,7 +58,17 @@ export function Header({
                  </DropdownMenuTrigger>
                  <DropdownMenuContent align="start" className="bg-transparent backdrop-blur-sm border border-white/20 min-w-[200px] p-2">
                    {link.children.map((child) => (
-                     <DropdownMenuItem key={child.label} asChild className="text-base py-3 px-4 cursor-pointer text-white focus:bg-white/20 focus:text-white">
+                     <DropdownMenuItem 
+                        key={child.label} 
+                        asChild 
+                        className={cn(
+                          "text-base py-3 px-4 cursor-pointer",
+                          textColor,
+                          isLight 
+                            ? "focus:bg-white/10 focus:text-white" 
+                            : "focus:bg-black/5 focus:text-foreground"
+                        )}
+                      >
                        <Link href={child.href}>
                          {child.label}
                        </Link>
