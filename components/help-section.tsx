@@ -129,7 +129,7 @@ export function HelpSection() {
 
                           {/* Mobile View - Compact Icon Design */}
                           <div className="md:hidden">
-                            <Card className="overflow-hidden bg-background active:bg-muted-foreground transition-all duration-200 p-0 gap-0">
+                            <Card className="overflow-hidden bg-background transition-all duration-200 p-0 gap-0">
                               <CardContent className="p-0 flex flex-row items-center">
                                 <div className="p-4 bg-accent flex items-center justify-center rounded-xl w-18 shrink-0 border-border min-h-18">
                                   <service.icon className="h-8 w-8 text-foreground" />
