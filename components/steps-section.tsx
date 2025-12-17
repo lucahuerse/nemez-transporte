@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Phone } from "lucide-react"
-import CTAButton from "./cta-button" // Ensuring we use the requested component
-import { Button } from "@/components/ui/button" // Keeping for the secondary/icon button if CTAButton is too rigid, or using it if possible.
+import CustomButton from "./custom-button" // Ensuring we use the requested component
+import { Button } from "@/components/ui/button" // Keeping for the secondary/icon button if CustomButton is too rigid, or using it if possible.
 
 export function StepsSection() {
   const steps = [
@@ -73,12 +73,12 @@ export function StepsSection() {
                          ))}
                        </ul>
                        <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                           <CTAButton 
+                           <CustomButton 
                                primaryText="Jetzt Anfrage senden" 
                                href="#contact-form"
                                className="bg-[#1a1a1a] text-white hover:bg-[#333] w-full sm:w-auto px-8"
                            />
-                           <CTAButton 
+                           <CustomButton 
                                primaryText="Telefonisch kontaktieren" 
                                href="tel:01621218418"
                                icon={Phone}

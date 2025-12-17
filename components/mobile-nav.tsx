@@ -7,7 +7,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
-import CTAButton from "./cta-button"
+import CustomButton from "./custom-button"
 import {
   Accordion,
   AccordionContent,
@@ -103,7 +103,7 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
             )
           ))}
           {ctaText && ctaHref && (
-            <CTAButton 
+            <CustomButton 
                 primaryText={ctaText} 
                 href={ctaHref} 
                 className="sm:w-fit w-full"

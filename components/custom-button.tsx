@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 
-interface CTAButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface CustomButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     primaryText: string;
     secondaryText?: string;
     href?: string;
@@ -11,7 +11,7 @@ interface CTAButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: "primary" | "outline";
 }
 
-export function CTAButton({
+export function CustomButton({
     primaryText,
     secondaryText,
     className,
@@ -21,7 +21,7 @@ export function CTAButton({
     variant = "primary",
     type = "button",
     ...props
-}: CTAButtonProps) {
+}: CustomButtonProps) {
     const content = (
         <span className="flex items-center justify-center gap-3">
             {Icon && <Icon className="w-5 h-5" />}
@@ -68,4 +68,4 @@ export function CTAButton({
     );
 }
 
-export default CTAButton;
+export default CustomButton;

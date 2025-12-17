@@ -1,4 +1,4 @@
-import CTAButton from "@/components/cta-button"
+import CustomButton from "@/components/custom-button"
 import { Star } from "lucide-react"
 import Image from "next/image"
 
@@ -20,7 +20,7 @@ export function CTASection() {
             </p>
 
             <div className="flex justify-center mb-8">
-              <CTAButton primaryText="Jetzt kostenlos Angebot anfordern" className="max-w-xs sm:max-w-md" />
+              <CustomButton primaryText="Jetzt kostenlos Angebot anfordern" className="max-w-xs sm:max-w-md" />
             </div>
 
             <div className="flex flex-col items-center gap-2 text-lg">

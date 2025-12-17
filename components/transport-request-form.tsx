@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils"
 
 import { Button } from "@/components/ui/button"
-import { CTAButton } from "@/components/cta-button"
+import { CustomButton } from "@/components/custom-button"
 import { Label } from "@/components/ui/label"
 import { CustomInput } from "@/components/ui/custom-input"
 import { CustomTextarea } from "@/components/ui/custom-textarea"
@@ -248,7 +248,7 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
           {onBack && (
             <>
               {/* Mobile Back Button (Square Icon) */}
-                  <CTAButton 
+                  <CustomButton 
                     primaryText=""
                     icon={ArrowLeft}
                     variant="outline"
@@ -257,7 +257,7 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
                   />
 
                   {/* Desktop Back Button (Text) */}
-                  <CTAButton 
+                  <CustomButton 
                     primaryText="Zurück"
                     icon={ArrowLeft}
                     variant="outline"
@@ -266,7 +266,7 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
                   />
                 </>
               )}
-              <CTAButton 
+              <CustomButton 
                 primaryText="Anfrage absenden"
                 icon={Send}
                 variant="primary"

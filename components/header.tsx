@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import CTAButton from "./cta-button"
+import CustomButton from "./custom-button"
 import { cn } from "@/lib/utils"
 import { MobileNav } from "./mobile-nav"
 import {
@@ -80,7 +80,7 @@ export function Header({
 
         <div className="flex items-center gap-4">
             {/* CTA Button */}
-            <CTAButton 
+            <CustomButton 
               primaryText={ctaText}
               href={ctaHref}
               className={cn(
