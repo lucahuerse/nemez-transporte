@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useState, useRef } from "react"
 import { TransportRequestForm } from "@/components/transport-request-form"
 import { StepProgress } from "@/components/ui/step-progress"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, Truck, Package, Home } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function HelpSection() {
@@ -18,16 +18,19 @@ export function HelpSection() {
       image: "/images/kleintransport.webp",
       title: "Kleintransport",
       value: "kleintransport",
+      icon: Truck
     },
     {
       image: "/images/umzug.webp",
       title: "Umzugsservice",
       value: "umzug",
+      icon: Package
     },
     {
       image: "/images/entruempelung.webp",
       title: "Entrümpelung",
       value: "entruempelung",
+      icon: Home
     },
   ]
 
@@ -73,28 +76,45 @@ export function HelpSection() {
                       <h2 className="text-4xl sm:text-5xl font-semibold mb-4 text-center">Wie können wir Ihnen helfen?</h2>
                       <p className="text-lg text-muted-foreground text-center mb-12">Wählen Sie die gewünschte Dienstleistung aus.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
                     {services.map((service, index) => (
                         <div
                         key={index}
                         onClick={() => handleServiceSelect(service.value)}
                         className="block group cursor-pointer h-full"
                         >
-              <Card className="py-0 overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="relative h-48 w-full overflow-hidden">
-                                <Image
-                                src={service.image}
-                                alt={service.title}
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                />
-                            </div>
-                  <div className="p-6 text-center bg-background">
-                    <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
-                            </div>
-                            </CardContent>
-                        </Card>
+                          {/* Desktop View - Original Design */}
+                          <div className="hidden md:block h-full">
+                            <Card className="py-0 overflow-hidden h-full">
+                              <CardContent className="p-0">
+                                <div className="relative h-48 w-full overflow-hidden">
+                                  <Image
+                                    src={service.image}
+                                    alt={service.title}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                  />
+                                </div>
+                                <div className="p-6 text-center bg-background">
+                                  <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          </div>
+
+                          {/* Mobile View - Compact Icon Design */}
+                          <div className="md:hidden">
+                            <Card className="overflow-hidden bg-background border-2 hover:border-accent transition-all duration-200 p-0 gap-0">
+                              <CardContent className="p-0 flex flex-row items-center">
+                                <div className="p-4 bg-white flex items-center justify-center w-18 shrink-0 border-border min-h-18">
+                                  <service.icon className="h-8 w-8 text-accent" />
+                                </div>
+                                <div className="p-4 h-auto text-left flex-1">
+                                  <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          </div>
                         </div>
                     ))}
                     </div>
