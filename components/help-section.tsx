@@ -63,7 +63,7 @@ export function HelpSection() {
                     { label: "Details" },
                     { label: "Fertig" }
                 ]}
-                className="mb-12"
+                className="mb-4 sm:mb-8"
             />
 
             <div className="flex-grow">

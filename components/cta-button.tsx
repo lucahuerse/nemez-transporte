@@ -32,10 +32,10 @@ export function CTAButton({
         </span>
     );
 
-    const baseStyles = "hover:cursor-pointer font-semibold px-12 py-4 h-14 rounded-sm transition-all";
+    const baseStyles = "hover:cursor-pointer font-semibold px-6 sm:px-12 py-4 h-14 rounded-sm transition-all";
     const variantStyles = {
         primary: "bg-accent hover:bg-accent-hover text-black border-none w-fit",
-        outline: "bg-transparent border-2 border-input hover:bg-transparent backdrop-blur-sm border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent font-medium px-12 h-14 rounded-sm"
+        outline: "bg-transparent border-2 border-input hover:bg-transparent backdrop-blur-sm border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent font-medium h-14 rounded-sm"
     };
 
     if (href) {

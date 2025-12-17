@@ -9,6 +9,7 @@ import { CustomInput } from "@/components/ui/custom-input"
 import { CustomTextarea } from "@/components/ui/custom-textarea"
 import { CustomPhoneInput } from "@/components/ui/custom-phone-input"
 import { CustomSelect, CustomSelectContent, CustomSelectItem, CustomSelectTrigger, CustomSelectValue } from "@/components/ui/custom-select"
+import { Switch } from "@/components/ui/switch"
 import * as React from "react"
 import { z } from "zod"
 import { useForm, Controller } from "react-hook-form"
@@ -18,7 +19,11 @@ const formSchema = z.object({
   name: z.string().min(2, "Bitte geben Sie Ihren vollständigen Namen ein"),
   email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein"),
   phone: z.string().min(1, "Bitte geben Sie eine Telefonnummer ein"),
-  service: z.string().min(1, "Bitte wählen Sie einen Service aus"),
+  service: z.string().refine((val) => 
+    ["transport_only", "transport_carry", "transport_assembly"].includes(val), 
+    "Bitte wählen Sie einen Service aus"
+  ),
+  isExpress: z.boolean().default(false),
   pickupAddress: z.string().optional(),
   pickupZip: z.string().optional(),
   pickupCity: z.string().optional(),
@@ -43,13 +48,15 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
     control,
     handleSubmit,
     formState: { errors },
+    setValue,
+    getValues,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
       phone: "",
-      service: defaultService || "",
+      service: defaultService || "transport_only",
       pickupAddress: "",
       pickupZip: "",
       pickupCity: "",
@@ -57,8 +64,19 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
       deliveryZip: "",
       deliveryCity: "",
       message: "",
+      isExpress: false,
     },
   })
+
+  React.useEffect(() => {
+    const currentService = getValues("service")
+    const validServices = ["transport_only", "transport_carry", "transport_assembly"]
+    if (!currentService || !validServices.includes(currentService)) {
+      setValue("service", defaultService || "transport_only")
+    }
+  }, [defaultService, setValue, getValues])
+
+
 
   // Helper for error messages to keep layout stable
   const ErrorMessage = ({ error, className }: { error?: { message?: string }, className?: string }) => {
@@ -124,22 +142,48 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
           </div>
           <div className="space-y-2 relative">
             <Label htmlFor="service" className="text-base font-medium">Welchen Service benötigen Sie?</Label>
-            <Controller
-              name="service"
-              control={control}
-              render={({ field }) => (
-                <CustomSelect onValueChange={field.onChange} defaultValue={field.value}>
-                  <CustomSelectTrigger id="service" error={!!errors.service}>
-                    <CustomSelectValue placeholder="Wählen Sie eine Option" />
-                  </CustomSelectTrigger>
-                  <CustomSelectContent>
-                    <CustomSelectItem value="kleintransport">Kleintransport</CustomSelectItem>
-                    <CustomSelectItem value="umzug">Umzug</CustomSelectItem>
-                    <CustomSelectItem value="entruempelung">Entrümpelung</CustomSelectItem>
-                  </CustomSelectContent>
-                </CustomSelect>
-              )}
-            />
+            <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
+              <div className="flex-1">
+                <Controller
+                  name="service"
+                  control={control}
+                  render={({ field }) => (
+                    <CustomSelect onValueChange={field.onChange} value={field.value}>
+                      <CustomSelectTrigger id="service" error={!!errors.service} className="w-full">
+                        <CustomSelectValue placeholder="Wählen Sie eine Option">
+                          {field.value === "transport_only" ? "Nur Transport" : 
+                           field.value === "transport_carry" ? "Transport + Tragen" :
+                           field.value === "transport_assembly" ? "Transport + Montage" :
+                           "Wählen Sie eine Option"}
+                        </CustomSelectValue>
+                      </CustomSelectTrigger>
+                      <CustomSelectContent>
+                        <CustomSelectItem value="transport_only">Nur Transport</CustomSelectItem>
+                        <CustomSelectItem value="transport_carry">Transport + Tragen</CustomSelectItem>
+                        <CustomSelectItem value="transport_assembly">Transport + Montage</CustomSelectItem>
+                      </CustomSelectContent>
+                    </CustomSelect>
+                  )}
+                />
+              </div>
+              <Controller
+                name="isExpress"
+                control={control}
+                render={({ field }) => (
+                  <div className="flex items-center space-x-2 rounded-lg border border-[#d1d5db] bg-white px-4 py-3.5">
+                    <Switch
+                      id="express-mode"
+                      className="hover:cursor-pointer"
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                    <Label htmlFor="express-mode" className="text-base font-medium cursor-pointer whitespace-nowrap">
+                      Express
+                    </Label>
+                  </div>
+                )}
+              />
+            </div>
             <ErrorMessage error={errors.service} />
           </div>
         </div>
