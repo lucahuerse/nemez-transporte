@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { TransportRequestForm } from "@/components/transport-request-form"
 import { StepProgress } from "@/components/ui/step-progress"
 import { CheckCircle2, Truck, Package, Home } from "lucide-react"
@@ -34,18 +34,40 @@ export function HelpSection() {
     },
   ]
 
+  // Handle browser back button
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      // If we're going back (state is null or doesn't have step 2), reset to step 1
+      const state = event.state as { step?: number } | null
+      if (!state || state.step !== 2) {
+        setStep(1)
+        setSelectedService("")
+        if (sectionRef.current) {
+          sectionRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+      } else if (state.step === 2) {
+        // If we moved forward to step 2 (e.g. forward button)
+        setStep(2)
+        // We might want to restore selectedService if possible, but for now this handles the back case.
+        // Ideally we would store the service in the state too.
+      }
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
   const handleServiceSelect = (value: string) => {
     setSelectedService(value)
     setStep(2)
+    // Push state so back button works
+    window.history.pushState({ step: 2, service: value }, "", "")
     // Scroll handling if needed
   }
 
   const handleBack = () => {
-    setStep(1)
-    setSelectedService("")
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: 'smooth' })
-    }
+    // Trigger browser back behavior which is caught by listener
+    window.history.back()
   }
 
   const handleSuccess = () => {
