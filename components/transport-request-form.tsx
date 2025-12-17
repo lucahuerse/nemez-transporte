@@ -58,7 +58,7 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
       name: "",
       email: "",
       phone: "",
-      service: defaultService || "transport_only",
+      service: defaultService || "",
       pickupAddress: "",
       pickupZip: "",
       pickupCity: "",
@@ -71,12 +71,10 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
   })
 
   React.useEffect(() => {
-    const currentService = getValues("service")
-    const validServices = ["transport_only", "transport_carry", "transport_assembly"]
-    if (!currentService || !validServices.includes(currentService)) {
-      setValue("service", defaultService || "transport_only")
+    if (defaultService) {
+      setValue("service", defaultService)
     }
-  }, [defaultService, setValue, getValues])
+  }, [defaultService, setValue])
 
 
 
