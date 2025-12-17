@@ -43,6 +43,9 @@ export function HelpSection() {
   const handleBack = () => {
     setStep(1)
     setSelectedService("")
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   const handleSuccess = () => {
