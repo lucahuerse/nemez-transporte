@@ -200,7 +200,7 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative">
-                <CustomInput placeholder="Postleitzahl" {...register("pickupZip")} error={!!errors.pickupZip} />
+                <CustomInput placeholder="Postleitzahl" {...register("pickupZip")} error={!!errors.pickupZip} inputMode="numeric" pattern="[0-9]*" />
                 <ErrorMessage error={errors.pickupZip} />
               </div>
               <div className="relative">
@@ -221,7 +221,7 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative">
-                <CustomInput placeholder="Postleitzahl" {...register("deliveryZip")} error={!!errors.deliveryZip} />
+                <CustomInput placeholder="Postleitzahl" {...register("deliveryZip")} error={!!errors.deliveryZip} inputMode="numeric" pattern="[0-9]*" />
                 <ErrorMessage error={errors.deliveryZip} />
               </div>
               <div className="relative">
