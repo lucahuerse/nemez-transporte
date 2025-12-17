@@ -31,6 +31,7 @@ const CustomPhoneInput = React.forwardRef<HTMLInputElement, CustomPhoneInputProp
               : "border-[#d1d5db] hover:border-[#d1d5db] hover:shadow-[0_0_0_1px_#d1d5db] focus:border-[#f8d24a] focus:shadow-[0_0_0_1px_#f8d24a] focus:outline-none",
             "disabled:cursor-not-allowed disabled:opacity-50"
           ),
+          type: "tel",
         }}
       />
     )
