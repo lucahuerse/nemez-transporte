@@ -4,6 +4,7 @@ import { Figtree } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Toaster } from "sonner"
 
 const figtree = Figtree({ 
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="de">
       <body className={`${figtree.variable} font-sans antialiased`}>
         {children}
+        <Toaster position="top-center" richColors />
         <Analytics />
         <SpeedInsights />
       </body>

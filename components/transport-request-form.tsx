@@ -10,32 +10,13 @@ import { CustomTextarea } from "@/components/ui/custom-textarea"
 import { CustomPhoneInput } from "@/components/ui/custom-phone-input"
 import { CustomSelect, CustomSelectContent, CustomSelectItem, CustomSelectTrigger, CustomSelectValue } from "@/components/ui/custom-select"
 import { Switch } from "@/components/ui/switch"
-import { ArrowLeft } from "lucide-react"
-import { Send } from "lucide-react"
+import { ArrowLeft, Send, Loader2 } from "lucide-react"
 import * as React from "react"
-import { z } from "zod"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { formSchema, type FormValues, type ActionResponse } from "@/lib/schemas"
+import { toast } from "sonner"
 
-const formSchema = z.object({
-  name: z.string().min(2, "Bitte geben Sie Ihren vollständigen Namen ein"),
-  email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein"),
-  phone: z.string().min(1, "Bitte geben Sie eine Telefonnummer ein"),
-  service: z.string().refine((val) => 
-    ["transport_only", "transport_carry", "transport_assembly"].includes(val), 
-    "Bitte wählen Sie einen Service aus"
-  ),
-  isExpress: z.boolean().default(false),
-  pickupAddress: z.string().optional(),
-  pickupZip: z.string().optional(),
-  pickupCity: z.string().optional(),
-  deliveryAddress: z.string().optional(),
-  deliveryZip: z.string().optional(),
-  deliveryCity: z.string().optional(),
-  message: z.string().min(10, "Bitte beschreiben Sie Ihre Anforderungen etwas genauer"),
-})
-
-type FormValues = z.infer<typeof formSchema>
 
 interface TransportRequestFormProps {
   defaultService?: string
@@ -45,13 +26,15 @@ interface TransportRequestFormProps {
 }
 
 export function TransportRequestForm({ defaultService, onSuccess, onBack, embedded = false }: TransportRequestFormProps) {
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
+
   const {
     register,
     control,
     handleSubmit,
     formState: { errors },
+    reset,
     setValue,
-    getValues,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -88,11 +71,32 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
     )
   }
 
-  const onSubmit = (data: FormValues) => {
-    console.log("Form data:", data)
-    // Here you would typically send the data to your API
-    if (onSuccess) {
-      onSuccess()
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true)
+    try {
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+      
+      const result: ActionResponse = await response.json()
+      
+      if (result.success) {
+        toast.success(result.message)
+        reset()
+        if (onSuccess) {
+          onSuccess()
+        }
+      } else {
+        toast.error(result.message || "Ein Fehler ist aufgetreten.")
+      }
+    } catch (error) {
+      toast.error("Ein unerwarteter Fehler ist aufgetreten.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -251,6 +255,7 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
                     icon={ArrowLeft}
                     variant="outline"
                     onClick={onBack}
+                    disabled={isSubmitting}
                     className="sm:hidden p-0 h-14 w-14 shrink-0 text-foreground border-border hover:text-foreground hover:border-foreground"
                   />
 
@@ -260,16 +265,21 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
                     icon={ArrowLeft}
                     variant="outline"
                     onClick={onBack}
+                    disabled={isSubmitting}
                     className="hidden sm:flex w-fit text-foreground border-border hover:text-foreground hover:border-foreground"
                   />
                 </>
               )}
               <CustomButton 
-                primaryText="Anfrage absenden"
-                icon={Send}
+                primaryText={isSubmitting ? "Sende..." : "Anfrage absenden"}
+                icon={isSubmitting ? (props: any) => <Loader2 {...props} className={cn(props.className, "animate-spin")} /> : Send}
                 variant="primary"
                 type="submit"
-                className="flex-1 w-full max-w-sm sm:w-fit sm:flex-none sm:max-w-none"
+                disabled={isSubmitting}
+                className={cn(
+                  "flex-1 w-full max-w-sm sm:w-fit sm:flex-none sm:max-w-none",
+                  isSubmitting && "opacity-80"
+                )}
               />
             </div>
       </form>
