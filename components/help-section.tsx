@@ -110,14 +110,14 @@ export function HelpSection() {
                         >
                           {/* Desktop View - Original Design */}
                           <div className="hidden md:block h-full">
-                            <Card className="py-0 overflow-hidden h-full">
+                            <Card className="py-0 overflow-hidden h-full shadow-none hover:scale-[1.03] transition-all duration-300">
                               <CardContent className="p-0">
                                 <div className="relative h-48 w-full overflow-hidden">
                                   <Image
                                     src={service.image}
                                     alt={service.title}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                    className="object-cover transition-transform duration-300"
                                   />
                                 </div>
                                 <div className="p-6 text-center bg-background">
