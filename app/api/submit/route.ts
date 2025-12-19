@@ -1,7 +1,7 @@
 import { formSchema } from "@/lib/schemas"
 
-export const runtime = "edge"
-
+// export const runtime = "edge" // Switch to Node.js runtime for better debugging
+ 
 export async function POST(req: Request) {
   const requestId = crypto.randomUUID()
   
@@ -38,14 +38,30 @@ export async function POST(req: Request) {
       }, { status: 500 })
     }
 
-    // Map form service to DB enum values
-    // Form uses: transport_only, transport_carry, transport_assembly
-    // DB allows: kleintransport, umzug, entruempelung
-    // Since the form currently only has variations of transport, we default to 'kleintransport'
-    // but in a real scenario we'd match the page/intent.
-    let dbService = "kleintransport"
-    if (validatedData.service.includes("umzug")) dbService = "umzug"
-    if (validatedData.service.includes("entruempelung")) dbService = "entruempelung"
+    const payload = {
+      id: requestId,
+      service_type: validatedData.serviceType,
+      name: validatedData.name,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      requested_date: validatedData.requestedDate,
+      is_express: validatedData.isExpress,
+      description: validatedData.message,
+      details: {
+        pickup: {
+          address: validatedData.pickupAddress,
+          zip: validatedData.pickupZip,
+          city: validatedData.pickupCity,
+        },
+        delivery: {
+          address: validatedData.deliveryAddress,
+          zip: validatedData.deliveryZip,
+          city: validatedData.deliveryCity,
+        }
+      },
+    }
+
+    console.info(`[${requestId}] Sending payload to Supabase:`, JSON.stringify(payload, null, 2))
 
     const response = await fetch(
       `${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE_NAME}`,
@@ -57,28 +73,7 @@ export async function POST(req: Request) {
           "Content-Type": "application/json",
           Prefer: "return=minimal",
         },
-        body: JSON.stringify({
-          id: requestId,
-          service: dbService,
-          name: validatedData.name,
-          email: validatedData.email,
-          phone: validatedData.phone,
-          description: validatedData.message,
-          is_express: validatedData.isExpress,
-          details: {
-            variant: validatedData.service, // Store the specific form variant
-            pickup: {
-              address: validatedData.pickupAddress,
-              zip: validatedData.pickupZip,
-              city: validatedData.pickupCity,
-            },
-            delivery: {
-              address: validatedData.deliveryAddress,
-              zip: validatedData.deliveryZip,
-              city: validatedData.deliveryCity,
-            }
-          },
-        }),
+        body: JSON.stringify(payload),
       }
     )
 

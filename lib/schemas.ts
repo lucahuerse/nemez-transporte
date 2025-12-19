@@ -4,10 +4,12 @@ export const formSchema = z.object({
   name: z.string().min(2, "Bitte geben Sie Ihren vollständigen Namen ein"),
   email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein"),
   phone: z.string().min(1, "Bitte geben Sie eine Telefonnummer ein"),
-  service: z.string().refine((val) => 
-    ["transport_only", "transport_carry", "transport_assembly"].includes(val), 
-    "Bitte wählen Sie einen Service aus"
-  ),
+  serviceType: z.enum(["kleintransport", "umzug", "entruempelung"], {
+    required_error: "Bitte wählen Sie einen Service aus",
+  }),
+  requestedDate: z.coerce.date({
+    required_error: "Bitte wählen Sie ein Wunschdatum aus",
+  }),
   isExpress: z.boolean().default(false),
   pickupAddress: z.string().optional(),
   pickupZip: z.string().optional(),

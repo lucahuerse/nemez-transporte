@@ -8,9 +8,12 @@ import { Label } from "@/components/ui/label"
 import { CustomInput } from "@/components/ui/custom-input"
 import { CustomTextarea } from "@/components/ui/custom-textarea"
 import { CustomPhoneInput } from "@/components/ui/custom-phone-input"
-import { CustomSelect, CustomSelectContent, CustomSelectItem, CustomSelectTrigger, CustomSelectValue } from "@/components/ui/custom-select"
 import { Switch } from "@/components/ui/switch"
-import { ArrowLeft, Send, Loader2 } from "lucide-react"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Calendar } from "@/components/ui/calendar"
+import { format } from "date-fns"
+import { de } from "date-fns/locale"
+import { ArrowLeft, Send, Loader2, Calendar as CalendarIcon } from "lucide-react"
 import * as React from "react"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -19,13 +22,13 @@ import { toast } from "sonner"
 
 
 interface TransportRequestFormProps {
-  defaultService?: string
+  serviceType?: "kleintransport" | "umzug" | "entruempelung"
   onSuccess?: () => void
   onBack?: () => void
   embedded?: boolean
 }
 
-export function TransportRequestForm({ defaultService, onSuccess, onBack, embedded = false }: TransportRequestFormProps) {
+export function TransportRequestForm({ serviceType = "kleintransport", onSuccess, onBack, embedded = false }: TransportRequestFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
   const {
@@ -41,7 +44,8 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
       name: "",
       email: "",
       phone: "",
-      service: defaultService || "",
+      serviceType: serviceType,
+      requestedDate: undefined,
       pickupAddress: "",
       pickupZip: "",
       pickupCity: "",
@@ -54,10 +58,10 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
   })
 
   React.useEffect(() => {
-    if (defaultService) {
-      setValue("service", defaultService)
+    if (serviceType) {
+      setValue("serviceType", serviceType)
     }
-  }, [defaultService, setValue])
+  }, [serviceType, setValue])
 
 
 
@@ -145,28 +149,44 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
             <ErrorMessage error={errors.phone} />
           </div>
           <div className="space-y-2 relative">
-            <Label htmlFor="service" className="text-base font-medium">Welchen Service benötigen Sie?</Label>
+            <Label htmlFor="date" className="text-base font-medium">Wunschdatum</Label>
             <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
               <div className="flex-1">
                 <Controller
-                  name="service"
+                  name="requestedDate"
                   control={control}
                   render={({ field }) => (
-                    <CustomSelect onValueChange={field.onChange} value={field.value}>
-                      <CustomSelectTrigger id="service" error={!!errors.service} className="w-full">
-                        <CustomSelectValue placeholder="Wählen Sie eine Option">
-                          {field.value === "transport_only" ? "Nur Transport" : 
-                           field.value === "transport_carry" ? "Transport + Tragen" :
-                           field.value === "transport_assembly" ? "Transport + Montage" :
-                           "Wählen Sie eine Option"}
-                        </CustomSelectValue>
-                      </CustomSelectTrigger>
-                      <CustomSelectContent>
-                        <CustomSelectItem value="transport_only">Nur Transport</CustomSelectItem>
-                        <CustomSelectItem value="transport_carry">Transport + Tragen</CustomSelectItem>
-                        <CustomSelectItem value="transport_assembly">Transport + Montage</CustomSelectItem>
-                      </CustomSelectContent>
-                    </CustomSelect>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className={cn(
+                            "w-full justify-start text-left font-normal bg-white border-[#d1d5db] h-14 px-4 hover:bg-white hover:border-foreground transition-colors",
+                            !field.value && "text-muted-foreground",
+                            errors.requestedDate && "border-red-500"
+                          )}
+                        >
+                          <CalendarIcon className="mr-2 h-5 w-5 opacity-50" />
+                          {field.value ? (
+                            format(field.value, "PPP", { locale: de })
+                          ) : (
+                            <span>Datum auswählen</span>
+                          )}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          disabled={(date) =>
+                            date < new Date(new Date().setHours(0, 0, 0, 0))
+                          }
+                          initialFocus
+                          locale={de}
+                        />
+                      </PopoverContent>
+                    </Popover>
                   )}
                 />
               </div>
@@ -174,7 +194,7 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
                 name="isExpress"
                 control={control}
                 render={({ field }) => (
-                  <div className="flex items-center space-x-2 rounded-lg border border-[#d1d5db] bg-white px-4 py-3.5">
+                  <div className="flex items-center space-x-2 rounded-lg border border-[#d1d5db] bg-white px-4 py-3.5 h-14">
                     <Switch
                       id="express-mode"
                       className="hover:cursor-pointer"
@@ -188,7 +208,7 @@ export function TransportRequestForm({ defaultService, onSuccess, onBack, embedd
                 )}
               />
             </div>
-            <ErrorMessage error={errors.service} />
+            <ErrorMessage error={errors.requestedDate} />
           </div>
         </div>
 
