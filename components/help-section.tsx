@@ -7,13 +7,14 @@ import { TransportRequestForm } from "@/components/transport-request-form"
 import { StepProgress } from "@/components/ui/step-progress"
 import { CheckCircle2, Truck, Package, Home } from "lucide-react"
 import { cn } from "@/lib/utils"
+import CustomButton from "./custom-button"
 
 export function HelpSection() {
   const [step, setStep] = useState(1)
-  const [selectedService, setSelectedService] = useState<string>("")
+  const [selectedService, setSelectedService] = useState<"kleintransport" | "umzug" | "entruempelung" | "">("")
   const sectionRef = useRef<HTMLElement>(null)
 
-  const services = [
+  const services: { image: string; title: string; value: "kleintransport" | "umzug" | "entruempelung"; icon: any }[] = [
     {
       image: "/images/kleintransport.webp",
       title: "Kleintransport",
@@ -57,7 +58,7 @@ export function HelpSection() {
     return () => window.removeEventListener('popstate', handlePopState)
   }, [])
 
-  const handleServiceSelect = (value: string) => {
+  const handleServiceSelect = (value: "kleintransport" | "umzug" | "entruempelung") => {
     setSelectedService(value)
     setStep(2)
     // Push state so back button works
@@ -160,7 +161,7 @@ export function HelpSection() {
                             </p>
                         </div>
                         <TransportRequestForm 
-                            defaultService={selectedService} 
+                            serviceType={selectedService || "kleintransport"} 
                             onSuccess={handleSuccess}
                             onBack={handleBack}
                             embedded={true}
@@ -181,12 +182,11 @@ export function HelpSection() {
                             In der Regel erhalten Sie innerhalb von 24 Stunden eine Rückmeldung von uns.
                         </p>
                         <div className="mt-8">
-                            <button 
+                            <CustomButton 
                                 onClick={() => { setStep(1); setSelectedService(""); }}
-                                className="text-primary font-medium hover:underline underline-offset-4"
-                            >
-                                Zurück zur Startseite
-                            </button>
+                                primaryText="Zurück zur Startseite"
+                                variant="primary"
+                            />
                         </div>
                     </div>
                 )}
