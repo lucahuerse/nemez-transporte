@@ -30,6 +30,7 @@ interface TransportRequestFormProps {
 
 export function TransportRequestForm({ serviceType = "kleintransport", onSuccess, onBack, embedded = false }: TransportRequestFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [isCalendarOpen, setIsCalendarOpen] = React.useState(false)
 
   const {
     register,
@@ -156,29 +157,36 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
                   name="requestedDate"
                   control={control}
                   render={({ field }) => (
-                    <Popover>
+                    <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
                       <PopoverTrigger asChild>
                         <Button
                           variant="outline"
                           className={cn(
-                            "w-full justify-start text-left font-normal bg-white border-[#d1d5db] h-14 px-4 hover:bg-white hover:border-foreground transition-colors",
-                            !field.value && "text-muted-foreground",
-                            errors.requestedDate && "border-red-500"
+                            "w-full justify-start text-left font-normal bg-white border-[#d1d5db] h-14 px-4 py-3.5 rounded-lg transition-all",
+                            "hover:border-[#d1d5db] hover:shadow-[0_0_0_1px_#d1d5db] hover:bg-white",
+                            isCalendarOpen ? "border-accent shadow-[0_0_0_1px_#f8d24a] hover:border-accent hover:shadow-[0_0_0_1px_#f8d24a]" : "",
+                            !field.value ? "text-[#9ca3af]" : "text-foreground",
+                            errors.requestedDate && "border-red-500 shadow-[0_0_0_1px_#ef4444]"
                           )}
                         >
                           <CalendarIcon className="mr-2 h-5 w-5 opacity-50" />
-                          {field.value ? (
-                            format(field.value, "PPP", { locale: de })
-                          ) : (
-                            <span>Datum auswählen</span>
-                          )}
+                          <span className="text-base">
+                            {field.value ? (
+                              format(field.value, "PPP", { locale: de })
+                            ) : (
+                              "Datum auswählen"
+                            )}
+                          </span>
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent className="w-auto p-0" align="start">
                         <Calendar
                           mode="single"
                           selected={field.value}
-                          onSelect={field.onChange}
+                          onSelect={(date) => {
+                            field.onChange(date)
+                            setIsCalendarOpen(false)
+                          }}
                           disabled={(date) =>
                             date < new Date(new Date().setHours(0, 0, 0, 0))
                           }
