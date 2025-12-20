@@ -42,21 +42,21 @@ export async function POST(req: Request) {
       id: requestId,
       service_type: validatedData.serviceType,
       name: validatedData.name,
-      email: validatedData.email,
-      phone: validatedData.phone,
+      email: validatedData.email || null,
+      phone: validatedData.phone || null,
       requested_date: validatedData.requestedDate,
       is_express: validatedData.isExpress,
       description: validatedData.message,
       details: {
         pickup: {
-          address: validatedData.pickupAddress,
-          zip: validatedData.pickupZip,
-          city: validatedData.pickupCity,
+          address: validatedData.pickupAddress || null,
+          zip: validatedData.pickupZip || null,
+          city: validatedData.pickupCity || null,
         },
         delivery: {
-          address: validatedData.deliveryAddress,
-          zip: validatedData.deliveryZip,
-          city: validatedData.deliveryCity,
+          address: validatedData.deliveryAddress || null,
+          zip: validatedData.deliveryZip || null,
+          city: validatedData.deliveryCity || null,
         }
       },
     }

@@ -116,16 +116,24 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
         </div>
       )}
 
+      <div className="text-sm text-muted-foreground mb-6">
+        <span className="text-red-500 font-bold">*</span> Pflichtfelder
+      </div>
+
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Row 1: Name and Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2 relative">
-            <Label htmlFor="name" className="text-base font-medium">Vollständiger Name</Label>
+            <Label htmlFor="name" className="text-base font-medium">
+              Vollständiger Name <span className="text-red-500">*</span>
+            </Label>
             <CustomInput id="name" placeholder="Max Mustermann" {...register("name")} error={!!errors.name} autoComplete="name" />
             <ErrorMessage error={errors.name} />
           </div>
           <div className="space-y-2 relative">
-            <Label htmlFor="email" className="text-base font-medium">E-Mail</Label>
+            <Label htmlFor="email" className="text-base font-medium">
+              E-Mail <span className="text-red-500">*</span>
+            </Label>
             <CustomInput id="email" type="email" placeholder="beispiel@gmail.com" {...register("email")} error={!!errors.email} autoComplete="email" />
             <ErrorMessage error={errors.email} />
           </div>
@@ -134,7 +142,9 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
         {/* Row 2: Phone and Service */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2 relative">
-            <Label htmlFor="phone" className="text-base font-medium">Telefon</Label>
+            <Label htmlFor="phone" className="text-base font-medium">
+              Telefon <span className="text-red-500">*</span>
+            </Label>
             <Controller
               name="phone"
               control={control}
@@ -150,7 +160,9 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
             <ErrorMessage error={errors.phone} />
           </div>
           <div className="space-y-2 relative">
-            <Label htmlFor="date" className="text-base font-medium">Wunschdatum</Label>
+            <Label htmlFor="date" className="text-base font-medium">
+              Wunschdatum <span className="text-red-500">*</span>
+            </Label>
             <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
               <div className="flex-1">
                 <Controller
@@ -162,11 +174,14 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
                         <Button
                           variant="outline"
                           className={cn(
-                            "w-full justify-start text-left font-normal bg-white border-[#d1d5db] h-14 px-4 py-3.5 rounded-lg transition-all",
+                            "w-full justify-start text-left font-normal bg-white h-14 px-4 py-3.5 rounded-lg transition-all",
                             "hover:border-[#d1d5db] hover:shadow-[0_0_0_1px_#d1d5db] hover:bg-white",
-                            isCalendarOpen ? "border-accent shadow-[0_0_0_1px_#f8d24a] hover:border-accent hover:shadow-[0_0_0_1px_#f8d24a]" : "",
                             !field.value ? "text-[#9ca3af]" : "text-foreground",
-                            errors.requestedDate && "border-red-500 shadow-[0_0_0_1px_#ef4444]"
+                            errors.requestedDate 
+                              ? "border-red-500 shadow-[0_0_0_1px_#ef4444]" 
+                              : isCalendarOpen 
+                                ? "border-accent shadow-[0_0_0_1px_#f8d24a]" 
+                                : "border-[#d1d5db]"
                           )}
                         >
                           <CalendarIcon className="mr-2 h-5 w-5 opacity-50" />
@@ -264,7 +279,9 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
 
         {/* Row 5: Description */}
         <div className="space-y-2 relative">
-          <Label htmlFor="message" className="text-base font-medium">Beschreiben Sie Ihre Anforderungen</Label>
+          <Label htmlFor="message" className="text-base font-medium">
+            Beschreiben Sie Ihre Anforderungen <span className="text-red-500">*</span>
+          </Label>
           <CustomTextarea 
             id="message" 
             placeholder="Was soll transportiert werden? Maße/Anzahl/Gewicht, Etage, Aufzug vorhanden?"
