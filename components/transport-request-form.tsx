@@ -121,12 +121,12 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2 relative">
             <Label htmlFor="name" className="text-base font-medium">Vollständiger Name</Label>
-            <CustomInput id="name" placeholder="Max Mustermann" {...register("name")} error={!!errors.name} />
+            <CustomInput id="name" placeholder="Max Mustermann" {...register("name")} error={!!errors.name} autoComplete="name" />
             <ErrorMessage error={errors.name} />
           </div>
           <div className="space-y-2 relative">
             <Label htmlFor="email" className="text-base font-medium">E-Mail</Label>
-            <CustomInput id="email" type="email" placeholder="beispiel@gmail.com" {...register("email")} error={!!errors.email} />
+            <CustomInput id="email" type="email" placeholder="beispiel@gmail.com" {...register("email")} error={!!errors.email} autoComplete="email" />
             <ErrorMessage error={errors.email} />
           </div>
         </div>
@@ -225,16 +225,16 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
           <Label className="text-base font-medium">Abholadresse</Label>
           <div className="space-y-4">
             <div className="relative">
-              <CustomInput placeholder="Adresse" {...register("pickupAddress")} error={!!errors.pickupAddress} />
+              <CustomInput placeholder="Adresse" {...register("pickupAddress")} error={!!errors.pickupAddress} autoComplete="address-line1" />
               <ErrorMessage error={errors.pickupAddress} />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative">
-                <CustomInput placeholder="Postleitzahl" {...register("pickupZip")} error={!!errors.pickupZip} inputMode="numeric" pattern="[0-9]*" />
+                <CustomInput placeholder="Postleitzahl" {...register("pickupZip")} error={!!errors.pickupZip} inputMode="numeric" pattern="[0-9]*" autoComplete="postal-code" />
                 <ErrorMessage error={errors.pickupZip} />
               </div>
               <div className="relative">
-                <CustomInput placeholder="Stadt" {...register("pickupCity")} error={!!errors.pickupCity} />
+                <CustomInput placeholder="Stadt" {...register("pickupCity")} error={!!errors.pickupCity} autoComplete="address-level2" />
                 <ErrorMessage error={errors.pickupCity} />
               </div>
             </div>
@@ -246,16 +246,16 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
           <Label className="text-base font-medium">Lieferadresse</Label>
           <div className="space-y-4">
             <div className="relative">
-              <CustomInput placeholder="Adresse" {...register("deliveryAddress")} error={!!errors.deliveryAddress} />
+              <CustomInput placeholder="Adresse" {...register("deliveryAddress")} error={!!errors.deliveryAddress} autoComplete="shipping address-line1" />
               <ErrorMessage error={errors.deliveryAddress} />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative">
-                <CustomInput placeholder="Postleitzahl" {...register("deliveryZip")} error={!!errors.deliveryZip} inputMode="numeric" pattern="[0-9]*" />
+                <CustomInput placeholder="Postleitzahl" {...register("deliveryZip")} error={!!errors.deliveryZip} inputMode="numeric" pattern="[0-9]*" autoComplete="shipping postal-code" />
                 <ErrorMessage error={errors.deliveryZip} />
               </div>
               <div className="relative">
-                <CustomInput placeholder="Stadt" {...register("deliveryCity")} error={!!errors.deliveryCity} />
+                <CustomInput placeholder="Stadt" {...register("deliveryCity")} error={!!errors.deliveryCity} autoComplete="shipping address-level2" />
                 <ErrorMessage error={errors.deliveryCity} />
               </div>
             </div>

@@ -37,6 +37,8 @@ const CustomPhoneInput = React.forwardRef<HTMLInputElement, CustomPhoneInputProp
     return (
       <PhoneInput
         international
+        withCountryCallingCode
+        autoComplete="tel"
         defaultCountry="DE"
         value={value}
         onChange={onChange as any}
