@@ -1,6 +1,6 @@
 "use client"
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
 import Link from "next/link"
@@ -53,6 +53,10 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
         side="top" 
         className="bg-black border-none text-white p-0 [&>button]:text-white [&>button]:top-6 [&>button]:right-4 [&>button>svg]:w-8 [&>button>svg]:h-8 [&>button>svg]:stroke-[1.5] [&>button]:focus:!ring-0 [&>button]:focus:!ring-offset-0 [&>button]:focus:!outline-none [&>button]:focus:!border-none"
       >
+        <SheetHeader className="sr-only">
+          <SheetTitle>Menü</SheetTitle>
+          <SheetDescription>Navigation für Nemez Transporte</SheetDescription>
+        </SheetHeader>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
              <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
                 <Image 
