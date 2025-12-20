@@ -171,9 +171,43 @@ export function HelpSection() {
 
                 {step === 3 && (
                     <div className="flex flex-col items-center justify-center text-center py-10 animate-in fade-in zoom-in duration-500 max-w-2xl mx-auto h-full">
-                        <div className="relative mb-8">
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-green-100 rounded-full animate-pulse" />
-                            <CheckCircle2 className="w-32 h-32 text-green-500 relative z-10 fill-white" />
+                        <div className="relative mb-8 w-32 h-32 flex items-center justify-center">
+                            <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+                                {/* Burst/Radiating lines */}
+                                <g className="animate-success-burst">
+                                    {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
+                                        <line
+                                            key={angle}
+                                            x1="50"
+                                            y1="5"
+                                            x2="50"
+                                            y2="0"
+                                            stroke="#22c55e"
+                                            strokeWidth="4"
+                                            strokeLinecap="round"
+                                            transform={`rotate(${angle} 50 50)`}
+                                        />
+                                    ))}
+                                </g>
+                                {/* Main Background Circle */}
+                                <circle 
+                                    cx="50" 
+                                    cy="50" 
+                                    r="40" 
+                                    fill="#22c55e" 
+                                    className="animate-success-circle" 
+                                />
+                                {/* Success Checkmark */}
+                                <path
+                                    d="M32 52 L44 64 L68 36"
+                                    fill="none"
+                                    stroke="white"
+                                    strokeWidth="6"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="animate-success-check"
+                                />
+                            </svg>
                         </div>
                         
                         <h2 className="text-3xl sm:text-4xl font-semibold mb-6">Danke für Ihr Vertrauen!</h2>
