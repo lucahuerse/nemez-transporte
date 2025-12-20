@@ -5,11 +5,9 @@ import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 import { cn } from "@/lib/utils"
 
-export interface CustomPhoneInputProps {
+export interface CustomPhoneInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   value?: string
   onChange?: (value?: string) => void
-  placeholder?: string
-  className?: string
   error?: boolean
 }
 
@@ -33,19 +31,22 @@ const CustomFlagComponent = ({ country, countryName }: { country: string, countr
 }
 
 const CustomPhoneInput = React.forwardRef<HTMLInputElement, CustomPhoneInputProps>(
-  ({ className, placeholder, value, onChange, error, ...props }, ref) => {
+  ({ className, placeholder, value, onChange, error, id, ...props }, ref) => {
     return (
       <PhoneInput
         international
         withCountryCallingCode
+        smartCaret={false}
         autoComplete="tel"
         defaultCountry="DE"
         value={value}
         onChange={onChange as any}
         placeholder={placeholder}
         flagComponent={CustomFlagComponent}
+        inputRef={ref}
         className={cn("custom-phone-input", className)}
         numberInputProps={{
+          id,
           className: cn(
             "flex w-full rounded-lg border bg-white px-4 py-3.5 text-base text-foreground placeholder:text-[#9ca3af] transition-all",
             error
@@ -54,6 +55,8 @@ const CustomPhoneInput = React.forwardRef<HTMLInputElement, CustomPhoneInputProp
             "disabled:cursor-not-allowed disabled:opacity-50"
           ),
           type: "tel",
+          autoComplete: "tel",
+          ...props,
         }}
       />
     )

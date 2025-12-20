@@ -150,8 +150,8 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
               control={control}
               render={({ field }) => (
                 <CustomPhoneInput
-                  value={field.value}
-                  onChange={field.onChange}
+                  {...field}
+                  id="phone"
                   placeholder="Geben Sie Ihre Telefonnummer ein"
                   error={!!errors.phone}
                 />
