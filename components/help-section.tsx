@@ -44,7 +44,7 @@ export function HelpSection() {
         setStep(1)
         setSelectedService("")
         if (sectionRef.current) {
-          sectionRef.current.scrollIntoView({ behavior: 'smooth' })
+          sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
       } else if (state.step === 2) {
         // If we moved forward to step 2 (e.g. forward button)
@@ -73,9 +73,17 @@ export function HelpSection() {
 
   const handleSuccess = () => {
     setStep(3)
-    if (sectionRef.current) {
-        sectionRef.current.scrollIntoView({ behavior: 'smooth' })
+    // Blur any active input to start closing the keyboard on mobile
+    if (typeof document !== 'undefined') {
+      (document.activeElement as HTMLElement)?.blur()
     }
+    
+    // Small delay to ensure the layout has updated and keyboard is starting to close
+    setTimeout(() => {
+      if (sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
   }
 
   return (
