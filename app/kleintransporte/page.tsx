@@ -1,5 +1,5 @@
 import { ServiceHero } from "@/components/service-hero"
-import { StepsSection } from "@/components/steps-section"
+import { TransportStepsSection } from "@/components/transport-steps-section"
 import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
 import { TransportRequestForm } from "@/components/transport-request-form"
@@ -31,7 +31,7 @@ export default function KleintransportePage() {
         imageAlt="Kleintransport Stuttgart"
       />
       
-      <StepsSection />
+      <TransportStepsSection />
       
       <PricingSection />
       

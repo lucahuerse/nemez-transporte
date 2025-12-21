@@ -14,13 +14,14 @@ export function MovingStepsSection() {
       number: "02",
       title: "Vorbereitung",
       description: "Wir liefern auf Wunsch Verpackungsmaterial und organisieren Halteverbotszonen. So ist am Umzugstag alles perfekt vorbereitet.",
-      details: ["Kartonlieferung", "Halteverbotszonen-Service"]
+      details: ["Kartonlieferung", "Halteverbotszonen-Service"],
     },
     {
       number: "03",
       title: "Der Umzugstag",
       description: "Unser Team erscheint pünktlich mit dem passenden Fahrzeug. Wir verladen Ihr Hab und Gut sicher und bringen es effizient in Ihr neues Zuhause.",
-      details: ["Professionelle Beladung", "Möbelmontage (optional)", "buttons"]
+      details: ["Professionelle Beladung", "Möbelmontage (optional)", "buttons"],
+      images: ["/images/step-planning-1.png", "/images/step-planning-2.jpg"]
     }
   ]
 
@@ -80,9 +81,18 @@ export function MovingStepsSection() {
                                primaryText="Kostenlose Beratung" 
                                href="tel:01622618418"
                                icon={Phone}
-                               className="bg-transparent border border-black/40 text-black hover:border-black/10 hover:text-black hover:bg-transparent font-medium px-6 h-14 rounded-sm"
+                               className="bg-transparent border border-black text-black hover:border-black/10 hover:text-black hover:bg-transparent font-medium px-6 h-14 rounded-sm"
                            />
                        </div>
+                    </div>
+                 )}
+                 {step.images && (
+                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                       {step.images.map((imgSrc, imgIdx) => (
+                         <div key={imgIdx} className="relative h-64 w-full overflow-hidden rounded-2xl">
+                            <Image src={imgSrc} alt={`Step image ${imgIdx + 1}`} fill className="object-cover" />
+                         </div>
+                       ))}
                     </div>
                  )}
                </div>

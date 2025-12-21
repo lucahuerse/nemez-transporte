@@ -3,7 +3,7 @@ import { Phone } from "lucide-react"
 import CustomButton from "./custom-button" // Ensuring we use the requested component
 import { Button } from "@/components/ui/button" // Keeping for the secondary/icon button if CustomButton is too rigid, or using it if possible.
 
-export function StepsSection() {
+export function TransportStepsSection() {
   const steps = [
     {
       number: "01",
@@ -15,19 +15,23 @@ export function StepsSection() {
       number: "02",
       title: "Planung",
       description: "Wir bereiten den Transport vor: Route, Zeitplan und benötigtes Equipment. Alles transparent und ohne Überraschungen.",
-      images: ["/images/step-planning-1.png", "/images/step-planning-2.jpg"]
     },
     {
       number: "03",
       title: "Durchführung",
       description: "Wir erscheinen pünktlich, erledigen den Transport zuverlässig und bestätigen gemeinsam die Übergabe.",
-      details: ["Sicherer Transport", "Abschluss & Zahlung", "buttons"] // Using a marker for buttons layout
+      details: ["Sicherer Transport", "Abschluss & Zahlung", "buttons"], // Using a marker for buttons layout
+      images: ["/images/step-planning-1.png", "/images/step-planning-2.jpg"]
     }
   ]
 
   return (
     <section id="process" className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-4xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl font-semibold mb-4">Ihr Transport in 3 einfachen Schritten</h2>
+          <p className="text-lg text-muted-foreground">So einfach und unkompliziert läuft Ihr Transport bei uns ab.</p>
+        </div>
         <div className="relative border-l-2 border-foreground/30 ml-4 md:ml-12 pl-8 md:pl-16 space-y-24">
           {steps.map((step, index) => (
             <div key={index} className="relative pl-0">
@@ -82,13 +86,13 @@ export function StepsSection() {
                                primaryText="Telefonisch kontaktieren" 
                                href="tel:01621218418"
                                icon={Phone}
-                               className="bg-transparent border border-black/40 text-black hover:border-black/10 hover:text-black hover:bg-transparent font-medium px-6 h-14 rounded-sm"
+                               className="bg-transparent border border-black text-black hover:border-black/10 hover:text-black hover:bg-transparent font-medium px-6 h-14 rounded-sm"
                            />
                        </div>
                     </div>
                  )}
 
-                 {/* Images for Step 2 */}
+                 {/* Images for Step 3 */}
                  {step.images && (
                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {step.images.map((imgSrc, imgIdx) => (
