@@ -108,7 +108,7 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
   const content = (
     <>
       {!embedded && (
-        <div className="text-left mb-12">
+        <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl font-semibold mb-3 tracking-tight">Transportanfrage stellen</h2>
           <p className="text-muted-foreground text-lg">
             Beantworte uns ein paar Fragen und wir melden uns schnellstmöglich mit einem Preis zurück.
@@ -235,43 +235,56 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
           </div>
         </div>
 
-        {/* Row 3: Pickup Address */}
-        <div className="space-y-3">
-          <Label className="text-base font-medium">Abholadresse</Label>
+        {/* Addresses Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">
+          {/* Pickup Address */}
           <div className="space-y-4">
-            <div className="relative">
-              <CustomInput placeholder="Adresse" {...register("pickupAddress")} error={!!errors.pickupAddress} autoComplete="address-line1" />
-              <ErrorMessage error={errors.pickupAddress} />
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-accent font-medium text-sm">1</div>
+              <Label className="text-base font-medium">
+                {serviceType === "umzug" ? "Auszugsadresse" : "Abholadresse"}
+              </Label>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-4">
               <div className="relative">
-                <CustomInput placeholder="Postleitzahl" {...register("pickupZip")} error={!!errors.pickupZip} inputMode="numeric" pattern="[0-9]*" autoComplete="postal-code" />
-                <ErrorMessage error={errors.pickupZip} />
+                <CustomInput placeholder="Straße und Hausnummer" {...register("pickupAddress")} error={!!errors.pickupAddress} autoComplete="address-line1" />
+                <ErrorMessage error={errors.pickupAddress} />
               </div>
-              <div className="relative">
-                <CustomInput placeholder="Stadt" {...register("pickupCity")} error={!!errors.pickupCity} autoComplete="address-level2" />
-                <ErrorMessage error={errors.pickupCity} />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="relative">
+                  <CustomInput placeholder="Postleitzahl" {...register("pickupZip")} error={!!errors.pickupZip} inputMode="numeric" pattern="[0-9]*" autoComplete="postal-code" />
+                  <ErrorMessage error={errors.pickupZip} />
+                </div>
+                <div className="relative">
+                  <CustomInput placeholder="Stadt" {...register("pickupCity")} error={!!errors.pickupCity} autoComplete="address-level2" />
+                  <ErrorMessage error={errors.pickupCity} />
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Row 4: Delivery Address */}
-        <div className="space-y-3">
-          <Label className="text-base font-medium">Lieferadresse</Label>
+          {/* Delivery Address */}
           <div className="space-y-4">
-            <div className="relative">
-              <CustomInput placeholder="Adresse" {...register("deliveryAddress")} error={!!errors.deliveryAddress} autoComplete="shipping address-line1" />
-              <ErrorMessage error={errors.deliveryAddress} />
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary font-medium text-sm">2</div>
+              <Label className="text-base font-medium">
+                {serviceType === "umzug" ? "Einzugsadresse" : "Lieferadresse"}
+              </Label>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-4">
               <div className="relative">
-                <CustomInput placeholder="Postleitzahl" {...register("deliveryZip")} error={!!errors.deliveryZip} inputMode="numeric" pattern="[0-9]*" autoComplete="shipping postal-code" />
-                <ErrorMessage error={errors.deliveryZip} />
+                <CustomInput placeholder="Straße und Hausnummer" {...register("deliveryAddress")} error={!!errors.deliveryAddress} autoComplete="shipping address-line1" />
+                <ErrorMessage error={errors.deliveryAddress} />
               </div>
-              <div className="relative">
-                <CustomInput placeholder="Stadt" {...register("deliveryCity")} error={!!errors.deliveryCity} autoComplete="shipping address-level2" />
-                <ErrorMessage error={errors.deliveryCity} />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="relative">
+                  <CustomInput placeholder="Postleitzahl" {...register("deliveryZip")} error={!!errors.deliveryZip} inputMode="numeric" pattern="[0-9]*" autoComplete="shipping postal-code" />
+                  <ErrorMessage error={errors.deliveryZip} />
+                </div>
+                <div className="relative">
+                  <CustomInput placeholder="Stadt" {...register("deliveryCity")} error={!!errors.deliveryCity} autoComplete="shipping address-level2" />
+                  <ErrorMessage error={errors.deliveryCity} />
+                </div>
               </div>
             </div>
           </div>
