@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
 import { TransportRequestForm } from "@/components/transport-request-form"
+import { MovingRequestForm } from "@/components/moving-request-form"
 import { StepProgress } from "@/components/ui/step-progress"
 import { CheckCircle2, Truck, Package, Home } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -168,12 +169,20 @@ export function HelpSection() {
                                 Beantworte uns ein paar Fragen und wir melden uns schnellstmöglich mit einem Preis zurück.
                             </p>
                         </div>
-                        <TransportRequestForm 
-                            serviceType={selectedService || "kleintransport"} 
-                            onSuccess={handleSuccess}
-                            onBack={handleBack}
-                            embedded={true}
-                        />
+                        {selectedService === "umzug" ? (
+                          <MovingRequestForm 
+                              onSuccess={handleSuccess}
+                              onBack={handleBack}
+                              embedded={true}
+                          />
+                        ) : (
+                          <TransportRequestForm 
+                              serviceType={selectedService || "kleintransport"} 
+                              onSuccess={handleSuccess}
+                              onBack={handleBack}
+                              embedded={true}
+                          />
+                        )}
                     </div>
                 )}
 
