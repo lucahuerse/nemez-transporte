@@ -67,10 +67,10 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
 
 
   // Helper for error messages to keep layout stable
-  const ErrorMessage = ({ error, className }: { error?: { message?: string }, className?: string }) => {
+  const ErrorMessage = ({ error, className }: { error?: any, className?: string }) => {
     if (!error?.message) return null
     return (
-      <span className={cn("text-xs text-red-500 font-medium absolute -bottom-4 left-0", className)}>
+      <span className={cn("text-xs text-red-500 font-medium absolute -bottom-5 left-0", className)}>
         {error.message}
       </span>
     )
@@ -175,7 +175,7 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
                           variant="outline"
                           className={cn(
                             "w-full justify-start text-left font-normal bg-white h-14 px-4 py-3.5 rounded-lg transition-all",
-                            "hover:border-[#d1d5db] hover:shadow-[0_0_0_1px_#d1d5db] hover:bg-white",
+                            "hover:border-[#d1d5db] hover:shadow-[0_0_0_1px_#d1d5db] hover:bg-white hover:cursor-pointer",
                             !field.value ? "text-[#9ca3af]" : "text-foreground",
                             errors.requestedDate 
                               ? "border-red-500 shadow-[0_0_0_1px_#ef4444]" 
@@ -205,7 +205,6 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
                           disabled={(date) =>
                             date < new Date(new Date().setHours(0, 0, 0, 0))
                           }
-                          initialFocus
                           locale={de}
                         />
                       </PopoverContent>
@@ -240,10 +239,7 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
           {/* Pickup Address */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-accent font-medium text-sm">1</div>
-              <Label className="text-base font-medium">
-                {serviceType === "umzug" ? "Auszugsadresse" : "Abholadresse"}
-              </Label>
+              <Label className="text-base font-medium">Abholadresse</Label>
             </div>
             <div className="space-y-4">
               <div className="relative">
@@ -266,10 +262,7 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
           {/* Delivery Address */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary font-medium text-sm">2</div>
-              <Label className="text-base font-medium">
-                {serviceType === "umzug" ? "Einzugsadresse" : "Lieferadresse"}
-              </Label>
+              <Label className="text-base font-medium">Lieferadresse</Label>
             </div>
             <div className="space-y-4">
               <div className="relative">
