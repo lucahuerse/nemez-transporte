@@ -233,16 +233,16 @@ export function MovingRequestForm({ onSuccess, onBack, embedded = false }: Movin
             </div>
             <div className="space-y-4">
               <div className="relative">
-                <CustomInput placeholder="Straße und Hausnummer" {...register("deliveryAddress")} error={!!errors.deliveryAddress} autoComplete="shipping address-line1" />
+                <CustomInput placeholder="Straße und Hausnummer" {...register("deliveryAddress")} error={!!errors.deliveryAddress} autoComplete="off" />
                 <ErrorMessage error={errors.deliveryAddress} />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="relative">
-                  <CustomInput placeholder="Postleitzahl" {...register("deliveryZip")} error={!!errors.deliveryZip} inputMode="numeric" pattern="[0-9]*" autoComplete="shipping postal-code" />
+                  <CustomInput placeholder="Postleitzahl" {...register("deliveryZip")} error={!!errors.deliveryZip} inputMode="numeric" pattern="[0-9]*" autoComplete="off" />
                   <ErrorMessage error={errors.deliveryZip} />
                 </div>
                 <div className="relative">
-                  <CustomInput placeholder="Stadt" {...register("deliveryCity")} error={!!errors.deliveryCity} autoComplete="shipping address-level2" />
+                  <CustomInput placeholder="Stadt" {...register("deliveryCity")} error={!!errors.deliveryCity} autoComplete="off" />
                   <ErrorMessage error={errors.deliveryCity} />
                 </div>
               </div>
