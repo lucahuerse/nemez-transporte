@@ -13,12 +13,14 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar"
 import { format } from "date-fns"
 import { de } from "date-fns/locale"
-import { ArrowLeft, Send, Loader2, Calendar as CalendarIcon } from "lucide-react"
+import { ArrowLeft, Send, Loader2, Calendar as CalendarIcon, Check } from "lucide-react"
 import * as React from "react"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { formSchema, type FormValues, type ActionResponse } from "@/lib/schemas"
 import { toast } from "sonner"
+import { Checkbox } from "@/components/ui/checkbox"
+import Link from "next/link"
 
 
 interface TransportRequestFormProps {
@@ -55,6 +57,7 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
       deliveryCity: "",
       message: "",
       isExpress: false,
+      acceptDataPolicy: false as any,
     },
   })
 
@@ -175,13 +178,13 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
                           variant="outline"
                           className={cn(
                             "w-full justify-start text-left font-normal bg-white h-14 px-4 py-3.5 rounded-lg transition-all",
-                            "hover:border-[#d1d5db] hover:shadow-[0_0_0_1px_#d1d5db] hover:bg-white hover:cursor-pointer",
+                            "hover:bg-white hover:cursor-pointer",
                             !field.value ? "text-[#9ca3af]" : "text-foreground",
-                            errors.requestedDate 
-                              ? "border-red-500 shadow-[0_0_0_1px_#ef4444]" 
-                              : isCalendarOpen 
-                                ? "border-accent shadow-[0_0_0_1px_#f8d24a]" 
-                                : "border-[#d1d5db]"
+                            isCalendarOpen 
+                              ? "border-accent shadow-[0_0_0_1px_#f8d24a]" 
+                              : errors.requestedDate 
+                                ? "border-red-500 shadow-[0_0_0_1px_#ef4444]" 
+                                : "border-[#d1d5db] hover:border-[#d1d5db] hover:shadow-[0_0_0_1px_#d1d5db]"
                           )}
                         >
                           <CalendarIcon className="mr-2 h-5 w-5 opacity-50" />
@@ -295,6 +298,42 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
             error={!!errors.message}
           />
           <ErrorMessage error={errors.message} className="-bottom-6" />
+        </div>
+
+        {/* Data Policy Checkbox */}
+        <div className="pt-2 relative">
+          <div className="flex items-start space-x-3">
+            <Controller
+              name="acceptDataPolicy"
+              control={control}
+              render={({ field }) => (
+                <Checkbox
+                  id="acceptDataPolicy"
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                  className={cn(
+                    "mt-1",
+                    errors.acceptDataPolicy && "border-red-500 ring-red-500/20"
+                  )}
+                />
+              )}
+            />
+            <Label
+              htmlFor="acceptDataPolicy"
+              className="text-sm font-medium leading-relaxed cursor-pointer select-none flex-1 block h-auto mt-0.5"
+            >
+              Ich habe die{" "}
+              <Link
+                href="/datenschutz"
+                target="_blank"
+                className="inline font-semibold text-foreground hover:text-accent active:text-accent transition-colors underline underline-offset-4 decoration-border hover:decoration-accent"
+              >
+                Datenschutzerklärung
+              </Link>{" "}
+              gelesen und akzeptiere diese. Ich willige ein, dass meine Angaben zur Kontaktaufnahme und Zuordnung für eventuelle Rückfragen dauerhaft gespeichert werden.
+            </Label>
+          </div>
+          <ErrorMessage error={errors.acceptDataPolicy} className="-bottom-5" />
         </div>
 
         <div className="pt-2 flex flex-row gap-4">
