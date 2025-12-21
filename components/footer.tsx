@@ -52,7 +52,7 @@ export function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/kleintransporte">Kleintransporte</Link></li>
               <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/umzug">Umzugsservice</Link></li>
-              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/entrumpelung">Entrümpelungen</Link></li>
+              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/entruempelung">Entrümpelungen</Link></li>
             </ul>
           </div>
 
