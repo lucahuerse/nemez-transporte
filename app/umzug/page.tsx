@@ -19,7 +19,7 @@ export default function UmzugPage() {
           { label: "Ablauf", href: "#process" },
           { label: "FAQ", href: "#faq" }
         ]}
-        ctaText="Jetzt Angebot anfordern" 
+        ctaText="Jetzt Umzug planen" 
         ctaHref="#contact-form"
       />
       <ServiceHero
