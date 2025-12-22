@@ -14,7 +14,7 @@ export function ServicesSection() {
       description:
         "Wenn es schnell gehen muss, sind wir zur Stelle. Wir übernehmen eilige Direktfahrten deutschlandweit und liefern zuverlässig noch am selben Tag.",
       image: "/images/express.webp",
-      href: "/kleintransporte"
+      href: "/express"
     },
     {
       title: "Umzugsservice",

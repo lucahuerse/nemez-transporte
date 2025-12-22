@@ -51,6 +51,7 @@ export function Footer() {
             <h3 className="font-semibold mb-4 text-lg">Leistungen</h3>
             <ul className="space-y-4 text-sm">
               <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/kleintransporte">Kleintransporte</Link></li>
+              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/express">Expresstransport</Link></li>
               <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/umzug">Umzugsservice</Link></li>
               <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/entruempelung">Entrümpelungen</Link></li>
             </ul>

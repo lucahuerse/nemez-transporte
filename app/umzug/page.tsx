@@ -16,6 +16,16 @@ export default function UmzugPage() {
       <Header 
         theme="dark" 
         navItems={[
+          { 
+            label: "Leistungen", 
+            href: "#",
+            children: [
+              { label: "Kleintransporte", href: "/kleintransporte" },
+              { label: "Expresstransport", href: "/express" },
+              { label: "Umzüge", href: "/umzug" },
+              { label: "Entrümpelungen", href: "/entruempelung" },
+            ]
+          },
           { label: "Ablauf", href: "#process" },
           { label: "FAQ", href: "#faq" }
         ]}

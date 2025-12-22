@@ -7,11 +7,11 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Kleintransporte Stuttgart | Nemez Transporte",
-  description: "Professionelle Kleintransporte in Stuttgart und Umgebung. Schnell, zuverlässig und günstig. Jetzt Angebot anfordern.",
+  title: "Expresstransport Stuttgart | Nemez Transporte",
+  description: "Dringender Eiltransport oder Expresslieferung in Stuttgart? Unser Service ist sofort einsatzbereit. Schnell, zuverlässig und sicher ans Ziel. Jetzt Angebot anfordern.",
 }
 
-export default function KleintransportePage() {
+export default function ExpressPage() {
   return (
     <main>
       <Header 
@@ -35,10 +35,10 @@ export default function KleintransportePage() {
         ctaHref="#contact-form"
       />
       <ServiceHero
-        title="Kleintransporte in Stuttgart und Umgebung"
-        subtitle="Wir bieten Ihnen professionelle Dienstleistungen für Kleintransporte, um Ihnen den Transport von sperrigen Gegenständen oder Kleinigkeiten, die nicht in einen herkömmlichen PKW passen, zu erleichtern."
+        title="Expresstransport & Kurierfahrten in Stuttgart"
+        subtitle="Wenn es schnell gehen muss: Unser Eiltransport und Expressservice für Ihre dringenden Sendungen. Ob Expresslieferung oder Over-night-Transport – wir sind zuverlässig, sicher und sofort einsatzbereit."
         image="/images/kleintransport.webp"
-        imageAlt="Kleintransport Stuttgart"
+        imageAlt="Expresstransport Stuttgart"
       />
       
       <TransportStepsSection />
@@ -47,7 +47,7 @@ export default function KleintransportePage() {
       
       <FAQSection />
 
-      <TransportRequestForm />
+      <TransportRequestForm defaultExpress={true} />
       <Footer />
     </main>
   )

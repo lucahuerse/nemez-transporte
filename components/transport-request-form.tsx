@@ -28,9 +28,16 @@ interface TransportRequestFormProps {
   onSuccess?: () => void
   onBack?: () => void
   embedded?: boolean
+  defaultExpress?: boolean
 }
 
-export function TransportRequestForm({ serviceType = "kleintransport", onSuccess, onBack, embedded = false }: TransportRequestFormProps) {
+export function TransportRequestForm({ 
+  serviceType = "kleintransport", 
+  onSuccess, 
+  onBack, 
+  embedded = false,
+  defaultExpress = false 
+}: TransportRequestFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [isSubmitted, setIsSubmitted] = React.useState(false)
   const [isCalendarOpen, setIsCalendarOpen] = React.useState(false)
@@ -66,7 +73,7 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
       deliveryZip: "",
       deliveryCity: "",
       message: "",
-      isExpress: false,
+      isExpress: defaultExpress,
       acceptDataPolicy: false,
     },
   })

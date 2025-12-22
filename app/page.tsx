@@ -19,6 +19,7 @@ export default function Home() {
             href: "#",
             children: [
               { label: "Kleintransporte", href: "/kleintransporte" },
+              { label: "Expresstransport", href: "/express" },
               { label: "Umzüge", href: "/umzug" },
               { label: "Entrümpelungen", href: "/entruempelung" },
             ]
