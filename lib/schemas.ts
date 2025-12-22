@@ -22,8 +22,8 @@ export const formSchema = z.object({
   deliveryZip: z.string().optional(),
   deliveryCity: z.string().optional(),
   message: z.string().min(10, "Bitte beschreiben Sie Ihre Anforderungen etwas genauer"),
-  acceptDataPolicy: z.literal(true, {
-    errorMap: () => ({ message: "Bitte akzeptieren Sie die Datenschutzerklärung" }),
+  acceptDataPolicy: z.boolean().refine((val) => val === true, {
+    message: "Bitte akzeptieren Sie die Datenschutzerklärung",
   }),
 })
 

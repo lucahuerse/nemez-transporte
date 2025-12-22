@@ -32,7 +32,17 @@ interface TransportRequestFormProps {
 
 export function TransportRequestForm({ serviceType = "kleintransport", onSuccess, onBack, embedded = false }: TransportRequestFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [isSubmitted, setIsSubmitted] = React.useState(false)
   const [isCalendarOpen, setIsCalendarOpen] = React.useState(false)
+  const formRef = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (isSubmitted && !onSuccess) {
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    }
+  }, [isSubmitted, onSuccess])
 
   const {
     register,
@@ -57,7 +67,7 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
       deliveryCity: "",
       message: "",
       isExpress: false,
-      acceptDataPolicy: false as any,
+      acceptDataPolicy: false,
     },
   })
 
@@ -94,10 +104,10 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
       
       if (result.success) {
         toast.success(result.message)
-        reset()
         if (onSuccess) {
           onSuccess()
         }
+        setIsSubmitted(true)
       } else {
         toast.error(result.message || "Ein Fehler ist aufgetreten.")
       }
@@ -108,7 +118,45 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
     }
   }
 
-  const content = (
+  const successContent = (
+    <div className="flex flex-col items-center justify-center text-center py-10 animate-in fade-in zoom-in duration-500 max-w-2xl mx-auto h-full">
+      <div className="relative mb-8 w-32 h-32 flex items-center justify-center">
+        <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+          <g className="animate-success-burst">
+            {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
+              <line
+                key={angle}
+                x1="50"
+                y1="5"
+                x2="50"
+                y2="0"
+                stroke="#22c55e"
+                strokeWidth="4"
+                strokeLinecap="round"
+                transform={`rotate(${angle} 50 50)`}
+              />
+            ))}
+          </g>
+          <circle cx="50" cy="50" r="40" fill="#22c55e" className="animate-success-circle" />
+          <path
+            d="M32 52 L44 64 L68 36"
+            fill="none"
+            stroke="white"
+            strokeWidth="6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="animate-success-check"
+          />
+        </svg>
+      </div>
+      <h2 className="text-3xl sm:text-4xl font-semibold mb-6">Danke für Ihr Vertrauen!</h2>
+      <p className="text-lg text-muted-foreground leading-relaxed">
+        Wir haben Ihre Anfrage erhalten und werden uns schnellstmöglich bei Ihnen melden. In der Regel erhalten Sie innerhalb von 24 Stunden eine Rückmeldung von uns.
+      </p>
+    </div>
+  )
+
+  const content = isSubmitted && !onSuccess ? successContent : (
     <>
       {!embedded && (
         <div className="text-center mb-12">
@@ -381,7 +429,7 @@ export function TransportRequestForm({ serviceType = "kleintransport", onSuccess
   }
 
   return (
-    <section className="py-20 bg-background" id="contact-form">
+    <section className="py-20 bg-background" id="contact-form" ref={formRef}>
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="bg-card rounded-2xl p-8 md:p-12 shadow-none dark:border-border">
           {content}

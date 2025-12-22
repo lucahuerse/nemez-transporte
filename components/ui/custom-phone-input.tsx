@@ -95,6 +95,7 @@ const CustomPhoneInput = React.forwardRef<HTMLInputElement, CustomPhoneInputProp
           <PopoverTrigger asChild>
             <Button
               variant="ghost"
+              tabIndex={-1}
               className="flex items-center gap-1.5 h-14 pl-4 pr-3 rounded-none hover:bg-slate-50 hover:cursor-pointer border-r border-[#d1d5db] shrink-0"
             >
               <div className="w-5 h-5 overflow-hidden rounded-[2px] flex-shrink-0">

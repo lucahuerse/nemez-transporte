@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
 import { TransportRequestForm } from "@/components/transport-request-form"
 import { MovingRequestForm } from "@/components/moving-request-form"
+import { EntruempelungRequestForm } from "@/components/entruempelung-request-form"
 import { StepProgress } from "@/components/ui/step-progress"
 import { CheckCircle2, Truck, Package, Home } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -171,6 +172,12 @@ export function HelpSection() {
                         </div>
                         {selectedService === "umzug" ? (
                           <MovingRequestForm 
+                              onSuccess={handleSuccess}
+                              onBack={handleBack}
+                              embedded={true}
+                          />
+                        ) : selectedService === "entruempelung" ? (
+                          <EntruempelungRequestForm 
                               onSuccess={handleSuccess}
                               onBack={handleBack}
                               embedded={true}
