@@ -5,6 +5,7 @@ import { FAQSection } from "@/components/faq-section"
 import { TransportRequestForm } from "@/components/transport-request-form"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
 
 export const metadata = {
   title: "Expresstransport Stuttgart | Nemez Transporte",
@@ -12,8 +13,24 @@ export const metadata = {
 }
 
 export default function ExpressPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Expresstransport Stuttgart",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Nemez Transporte"
+    },
+    "description": "Dringender Eiltransport oder Expresslieferung in Stuttgart. Unser Service ist sofort einsatzbereit.",
+    "areaServed": {
+      "@type": "City",
+      "name": "Stuttgart"
+    }
+  };
+
   return (
     <main>
+      <JsonLd data={structuredData} />
       <Header 
         theme="dark" 
         navItems={[

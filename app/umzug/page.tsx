@@ -4,6 +4,7 @@ import { MovingFAQSection } from "@/components/moving-faq-section"
 import { MovingRequestForm } from "@/components/moving-request-form"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
 
 export const metadata = {
   title: "Umzugsservice Stuttgart | Nemez Transporte",
@@ -11,8 +12,24 @@ export const metadata = {
 }
 
 export default function UmzugPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Umzugsservice Stuttgart",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Nemez Transporte"
+    },
+    "description": "Professioneller Umzugsservice in Stuttgart und Umgebung. Stressfrei, zuverlässig und kompetent.",
+    "areaServed": {
+      "@type": "City",
+      "name": "Stuttgart"
+    }
+  };
+
   return (
     <main>
+      <JsonLd data={structuredData} />
       <Header 
         theme="dark" 
         navItems={[

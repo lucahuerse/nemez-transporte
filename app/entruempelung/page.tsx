@@ -4,6 +4,7 @@ import { EntruempelungFAQSection } from "@/components/entruempelung-faq-section"
 import { EntruempelungRequestForm } from "@/components/entruempelung-request-form"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
 
 export const metadata = {
   title: "Entrümpelung Stuttgart | Nemez Transporte",
@@ -11,8 +12,24 @@ export const metadata = {
 }
 
 export default function EntruempelungPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Entrümpelung Stuttgart",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Nemez Transporte"
+    },
+    "description": "Professionelle Entrümpelung und Wohnungsauflösung in Stuttgart und Umgebung. Schnell, diskret und besenrein.",
+    "areaServed": {
+      "@type": "City",
+      "name": "Stuttgart"
+    }
+  };
+
   return (
     <main>
+      <JsonLd data={structuredData} />
       <Header 
         theme="dark" 
         navItems={[
