@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   description: "Ob Expresslieferung, Umzug oder komplette Haushaltsauflösung - wir denken mit! Ihr zuverlässiger Partner in Stuttgart und Umgebung.",
   keywords: ["Kleintransport", "Umzug Stuttgart", "Entrümpelung", "Expresstransport", "Eiltransport", "Stuttgart", "Möbeltaxi"],
-  authors: [{ name: "Mark Nemez" }],
-  creator: "Mark Nemez",
+  authors: [{ name: "Mustafa Nemez" }],
+  creator: "Mustafa Nemez",
   openGraph: {
     type: "website",
     locale: "de_DE",

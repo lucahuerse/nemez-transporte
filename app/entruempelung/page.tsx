@@ -52,7 +52,7 @@ export default function EntruempelungPage() {
       <ServiceHero
         title="Entrümpelung & Wohnungsauflösung in Stuttgart"
         subtitle="Wir schaffen Platz! Egal ob Keller, Dachboden oder die komplette Wohnung – wir entrümpeln schnell, zuverlässig und hinterlassen alles besenrein. Inklusive transparenter Festpreisgarantie und Wertanrechnung."
-        image="/images/umzug.webp" // Using umzug image as placeholder if no specific entruempelung image exists
+        image="/images/entruempelung.webp"
         imageAlt="Entrümpelung Stuttgart"
       />
       

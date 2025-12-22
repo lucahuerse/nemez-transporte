@@ -27,7 +27,7 @@ export function EntruempelungStepsSection() {
       title: "Besenreine Übergabe",
       description: "Nach Abschluss der Arbeiten übergeben wir Ihnen das Objekt in einem sauberen, besenreinen Zustand. Fertig für die weitere Nutzung.",
       details: ["Sauber & Ordentlich", "Finaler Check", "buttons"],
-      images: ["/images/moving-steps-1.webp", "/images/moving-steps-2.webp"] // Fallback to existing images if needed
+      images: ["/images/entruempelung-steps-1.png", "/images/entruempelung-steps-2.png"]
     }
   ]
 
