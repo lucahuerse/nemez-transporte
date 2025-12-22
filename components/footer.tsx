@@ -33,7 +33,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-accent shrink-0" />
-                <Link href="mailto:info@nemez-transporte.de" className="hover:text-accent transition-colors text-primary-foreground/80">info@nemez-transporte.de</Link>
+                <Link href="mailto:m.nemez@nemez-transporte.de" className="hover:text-accent transition-colors text-primary-foreground/80">m.nemez@nemez-transporte.de</Link>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-accent shrink-0" />
