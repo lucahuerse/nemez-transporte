@@ -12,8 +12,8 @@ interface ServiceCardProps {
 
 export function ServiceCard({ title, description, image, href }: ServiceCardProps) {
   const content = (
-    <Card className="overflow-hidden shadow-none border-none pt-0 h-full flex flex-col">
-      <div className="relative h-72 w-full flex-shrink-0">
+    <Card className="overflow-hidden shadow-none border-none py-0 h-full flex flex-col gap-1">
+      <div className="relative h-48 lg:h-64 w-full flex-shrink-0">
         <Image
           src={image}
           alt={title}
@@ -22,7 +22,7 @@ export function ServiceCard({ title, description, image, href }: ServiceCardProp
           className="object-cover w-full h-full"
         />
       </div>
-      <CardContent className="p-8 flex-grow flex flex-col">
+      <CardContent className="p-6 lg:p-8 flex-grow flex flex-col">
         <h2 className="text-3xl font-semibold mb-3">{title}</h2>
         <p className="text-lg text-muted-foreground mb-6 leading-relaxed flex-grow">{description}</p>
         <CustomButton primaryText="Mehr erfahren" className="w-min" href={href} />
