@@ -143,7 +143,7 @@ export function HelpSection() {
                             <Card className="overflow-hidden bg-background transition-all duration-200 p-0 gap-0">
                               <CardContent className="p-0 flex flex-row items-center">
                                 <div className="p-4 bg-accent flex items-center justify-center rounded-xl w-18 shrink-0 border-border min-h-18">
-                                  <service.icon className="h-8 w-8 text-foreground" />
+                                  <service.icon className="h-8 w-8 text-white" />
                                 </div>
                                 <div className="px-6 py-4 h-auto text-left flex-1">
                                   <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
