@@ -4,16 +4,16 @@ import { Star } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[100dvh] pt-20 flex flex-col justify-center bg-background overflow-hidden">
+    <section className="relative min-h-[100dvh] pt-8 flex flex-col justify-center bg-background overflow-hidden">
       
-      <div className="container px-4 mx-auto flex flex-col md:flex-row items-stretch gap-8 lg:gap-12 py-12 md:py-0">
+      <div className="container px-4 md:px-12 lg:px-28 mx-auto flex flex-col md:flex-row items-stretch gap-8 lg:gap-12 py-12 md:py-0">
         {/* Left Content */}
-        <div className="w-full md:flex-[1.5] flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 transition-all">
+        <div className="w-full md:flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 transition-all">
           <h1 className="text-4xl leading-tight md:text-5xl lg:text-[64px] font-semibold text-primary mb-6 text-balance animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
             Transporte und Umzüge in Stuttgart und Umgebung
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 fill-mode-both leading-relaxed">
-            Seit über 20 Jahren Ihr zuverlässiger Partner für Kleintransporte und Umzüge. Alles aus einer Hand.
+            Seit vielen Jahren Ihr zuverlässiger Partner für Kleintransporte und Umzüge. Alles aus einer Hand.
           </p>
 
           {/* Social Proof / Reviews */}
@@ -46,28 +46,14 @@ export function HeroSection() {
         </div>
 
         {/* Right Image */}
-        <div className="w-full md:flex-1 flex flex-col justify-center items-center md:items-stretch overflow-hidden">
-             {/* Mobile: 3/2 aspect ratio fixed. Desktop: h-full (match left col) and w-auto (intrinsic 3/2) but shrinkable */}
-             <div className="relative w-full md:w-auto md:h-full md:max-w-[45vw] rounded-3xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-1000 delay-300 fill-mode-both flex-shrink shadow-2xl"> 
-                {/* On mobile we use aspect ratio wrapper. On desktop we rely on h-full of the image. */}
-                <div className="md:hidden aspect-[3/2] relative w-full">
-                  <Image 
-                    fetchPriority="high" 
-                    src="/images/hero-van.webp" 
-                    alt="Nemez Transporte Van" 
-                    fill 
-                    className="object-cover" 
-                    priority 
-                  />
-                </div>
-                
+        <div className="w-full md:flex-1 flex flex-col justify-center items-center md:items-stretch overflow-hidden relative min-h-[300px] md:min-h-0">
+             <div className="relative w-full h-full rounded-3xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-1000 delay-300 fill-mode-both"> 
                 <Image 
                   fetchPriority="high" 
                   src="/images/hero-van.webp" 
                   alt="Nemez Transporte Van" 
-                  width={900}
-                  height={600}
-                  className="hidden md:block h-full w-auto object-cover max-w-full" 
+                  fill
+                  className="object-cover" 
                   priority 
                 />
              </div>
