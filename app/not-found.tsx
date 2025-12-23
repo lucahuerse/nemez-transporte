@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header 
-        theme="dark" 
+        theme="transparent" 
         navItems={[
           { 
             label: "Leistungen", 
