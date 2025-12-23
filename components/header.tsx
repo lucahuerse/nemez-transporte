@@ -41,7 +41,7 @@ export function Header({
   const logoSrc = isLight ? "/images/logo-white.webp" : "/images/logo-dark.png"
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50">
+    <header className="relative z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image src={logoSrc} alt="Nemez Transporte" width={180} height={50} className="h-12 w-auto" priority />
