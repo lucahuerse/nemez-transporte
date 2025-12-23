@@ -27,7 +27,7 @@ export function SocialProof({ className, variant = "default" }: SocialProofProps
             ))}
          </div>
          <span className={cn("text-sm font-medium", isLight ? "text-white/90" : "text-muted-foreground")}>
-            <span className={cn("font-bold", isLight ? "text-white" : "text-foreground")}>4.9</span> von 5 (2000+ Bewertungen)
+            <span className={cn("font-bold", isLight ? "text-white" : "text-foreground")}>5.0</span> von 5 (3 Google Rezensionen)
          </span>
       </div>
     </div>
