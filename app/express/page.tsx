@@ -10,7 +10,7 @@ import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 
 export const metadata = {
-  title: "Expresstransport Stuttgart | Nemez Transporte",
+  title: "Expresstransport Stuttgart",
   description: "Dringender Eiltransport oder Expresslieferung in Stuttgart? Unser Service ist sofort einsatzbereit. Schnell, zuverlässig und sicher ans Ziel. Jetzt Angebot anfordern.",
 }
 

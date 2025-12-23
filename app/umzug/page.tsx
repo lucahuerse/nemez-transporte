@@ -9,7 +9,7 @@ import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 
 export const metadata = {
-  title: "Umzugsservice Stuttgart | Nemez Transporte",
+  title: "Umzugsservice Stuttgart",
   description: "Professioneller Umzugsservice in Stuttgart und Umgebung. Stressfrei, zuverlässig und kompetent. Jetzt Angebot für Ihren Umzug anfordern.",
 }
 

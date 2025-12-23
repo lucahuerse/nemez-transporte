@@ -10,7 +10,7 @@ import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 
 export const metadata = {
-  title: "Kleintransporte Stuttgart | Nemez Transporte",
+  title: "Kleintransporte Stuttgart",
   description: "Professionelle Kleintransporte in Stuttgart und Umgebung. Schnell, zuverlässig und günstig. Jetzt Angebot anfordern.",
 }
 

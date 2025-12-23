@@ -20,7 +20,7 @@ interface NavItem {
 }
 
 interface HeaderProps {
-  theme?: 'light' | 'dark'
+  theme?: 'light' | 'dark' | 'transparent'
   navItems?: NavItem[]
   ctaText?: string
   ctaHref?: string
@@ -37,12 +37,14 @@ export function Header({
   ctaHref
 }: HeaderProps) {
   const isLight = theme === 'light'
+  const isTransparent = theme === 'transparent'
   const textColor = isLight ? "text-white" : "text-foreground"
   const hoverColor = isLight ? "hover:text-accent" : "hover:text-primary/70"
   const logoSrc = isLight ? "/images/logo-white.webp" : "/images/logo-dark.png"
+  const bgColor = isTransparent ? "transparent" : "bg-brand-cream"
 
   return (
-    <header className="relative z-50 bg-brand-cream">
+    <header className={cn("relative z-50", bgColor)}>
       <TopBar />
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center">

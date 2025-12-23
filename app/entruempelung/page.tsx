@@ -9,7 +9,7 @@ import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 
 export const metadata = {
-  title: "Entrümpelung Stuttgart | Nemez Transporte",
+  title: "Entrümpelung Stuttgart",
   description: "Professionelle Entrümpelung und Wohnungsauflösung in Stuttgart und Umgebung. Schnell, diskret und besenrein. Jetzt kostenlose Besichtigung anfordern.",
 }
 
