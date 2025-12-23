@@ -37,20 +37,20 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-950 px-4">
-      <div className="w-full max-w-md space-y-8 bg-zinc-900 p-8 rounded-2xl border border-zinc-800 shadow-2xl">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-brand-cream px-4">
+      <div className="w-full max-w-md space-y-8 bg-card p-8 rounded-2xl border border-border shadow-2xl">
         <div className="flex flex-col items-center">
           <Image
-            src="/images/logo-white.webp"
+            src="/images/logo-dark.png"
             alt="Nemez Transporte"
             height={80}
             width={200}
             className="h-16 w-auto mb-8"
           />
-          <h2 className="text-2xl font-bold text-white text-center">
+          <h2 className="text-2xl font-bold text-foreground text-center">
             Website unter Aufbau
           </h2>
-          <p className="mt-2 text-sm text-zinc-400 text-center">
+          <p className="mt-2 text-sm text-muted-foreground text-center">
             Bitte geben Sie das Passwort ein, um die Seite zu betreten.
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function LoginPage() {
               name="password"
               type="password"
               required
-              className="appearance-none relative block w-full px-3 py-4 border border-zinc-700 placeholder-zinc-500 text-white rounded-lg bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent sm:text-sm"
+              className="appearance-none relative block w-full px-3 py-4 border border-input placeholder:text-muted-foreground text-foreground rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent sm:text-sm"
               placeholder="Passwort"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -82,7 +82,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-semibold rounded-lg text-white bg-accent hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-semibold rounded-lg text-accent-foreground bg-accent hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
@@ -97,7 +97,7 @@ export default function LoginPage() {
         </form>
 
         <div className="mt-8 text-center">
-          <p className="text-xs text-zinc-500">
+          <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Nemez Transporte. Alle Rechte vorbehalten.
           </p>
         </div>
