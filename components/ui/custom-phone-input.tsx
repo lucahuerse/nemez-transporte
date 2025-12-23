@@ -88,7 +88,7 @@ const CustomPhoneInput = React.forwardRef<HTMLInputElement, CustomPhoneInputProp
         "flex items-center w-full rounded-lg border bg-white transition-all overflow-hidden relative",
         error
           ? "border-red-500 shadow-[0_0_0_1px_#ef4444]"
-          : "border-[#d1d5db] focus-within:border-[#f8d24a] focus-within:shadow-[0_0_0_1px_#f8d24a]",
+          : "border-[#d1d5db] focus-within:border-[#D0AB74] focus-within:shadow-[0_0_0_1px_#D0AB74]",
         className
       )}>
         <Popover open={open} onOpenChange={setOpen}>

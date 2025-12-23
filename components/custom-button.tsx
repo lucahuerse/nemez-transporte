@@ -37,7 +37,7 @@ export function CustomButton({
     const paddingClasses = Icon ? "px-6" : "px-6 sm:px-10";
     const baseStyles = `hover:cursor-pointer font-semibold ${paddingClasses} py-4 h-14 rounded-sm transition-all`;
     const variantStyles = {
-        primary: "bg-accent hover:bg-accent-hover text-black border-none w-fit",
+        primary: "bg-accent hover:bg-accent-hover text-white border-none w-fit",
         outline: "bg-transparent border-2 border-input hover:bg-transparent backdrop-blur-sm border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent font-medium h-14 rounded-sm"
     };
 

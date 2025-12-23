@@ -26,7 +26,7 @@ export function HeroSection() {
                ))}
             </div>
             <div className="flex flex-col items-center sm:items-start">
-               <div className="flex gap-0.5 text-yellow-400">
+               <div className="flex gap-0.5 text-accent">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Star key={i} className="w-4 h-4 fill-current" />
                   ))}

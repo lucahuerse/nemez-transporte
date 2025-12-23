@@ -24,7 +24,7 @@ export function ServiceCard({ title, description, image, href }: ServiceCardProp
       </div>
       <CardContent className="p-8 flex-grow flex flex-col">
         <h2 className="text-3xl font-semibold mb-3">{title}</h2>
-        <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">{description}</p>
+        <p className="text-lg text-muted-foreground mb-6 leading-relaxed flex-grow">{description}</p>
         <CustomButton primaryText="Mehr erfahren" className="w-min" href={href} />
       </CardContent>
     </Card>

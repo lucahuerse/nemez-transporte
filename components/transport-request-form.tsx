@@ -236,7 +236,7 @@ export function TransportRequestForm({
                             "hover:bg-white hover:cursor-pointer",
                             !field.value ? "text-[#9ca3af]" : "text-foreground",
                             isCalendarOpen 
-                              ? "border-accent shadow-[0_0_0_1px_#f8d24a]" 
+                              ? "border-accent shadow-[0_0_0_1px_var(--accent-hover)]" 
                               : errors.requestedDate 
                                 ? "border-red-500 shadow-[0_0_0_1px_#ef4444]" 
                                 : "border-[#d1d5db] hover:border-[#d1d5db] hover:shadow-[0_0_0_1px_#d1d5db]"

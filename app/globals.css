@@ -18,12 +18,12 @@
   --primary-foreground: oklch(0.98 0 0);
 
   /* Gold accent color */
-  --accent: #f8d24a;
-  --accent-hover: #e4c145;
+  --accent: #D0AB74;
+  --accent-hover: #D0AD77;
   --accent-foreground: oklch(0.15 0 0);
 
   /* Brand colors */
-  --brand-light: #e8f4f8;
+  --brand-light: #F2F2F2;
 
   /* Muted gray tones */
   --muted: oklch(0.96 0 0);
