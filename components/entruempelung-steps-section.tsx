@@ -32,7 +32,7 @@ export function EntruempelungStepsSection() {
   ]
 
   return (
-    <section id="process" className="py-20 bg-background">
+    <section id="process" className="py-20 bg-brand-light">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-semibold mb-4">Ihre Entrümpelung in 4 einfachen Schritten</h2>

@@ -131,7 +131,7 @@ export function HelpSection() {
                                     className="object-cover transition-transform duration-300"
                                   />
                                 </div>
-                                <div className="p-6 text-center bg-background">
+                                <div className="p-6 text-center bg-brand-light">
                                   <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
                                 </div>
                               </CardContent>

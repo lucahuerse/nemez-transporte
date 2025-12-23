@@ -35,7 +35,7 @@ export function FAQSection() {
   ]
 
   return (
-    <section id="faq" className="py-20 bg-muted/30">
+    <section id="faq" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-semibold mb-4 text-center">Häufig gestellte Fragen</h2>
