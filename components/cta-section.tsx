@@ -1,6 +1,7 @@
 import CustomButton from "@/components/custom-button"
 import { Star } from "lucide-react"
 import Image from "next/image"
+import { SocialProof } from "./social-proof"
 
 export function CTASection() {
   return (
@@ -23,13 +24,8 @@ export function CTASection() {
               <CustomButton primaryText="Jetzt kostenlos Angebot anfordern" className="max-w-xs sm:max-w-md" />
             </div>
 
-            <div className="flex flex-col items-center gap-2 text-lg">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-6 w-6 fill-accent text-accent" />
-                ))}
-              </div>
-              <span className="text-primary-foreground/90"><strong>4,9</strong> / 5 basierend auf 23 Bewertungen</span>
+            <div className="flex justify-center text-white">
+              <SocialProof variant="light" />
             </div>
           </div>
         </div>
