@@ -141,6 +141,7 @@
   html,
   body {
     @apply bg-background text-foreground;
+    @apply tracking-tight;
     overscroll-behavior-y: auto;
     scroll-behavior: smooth;
   }
