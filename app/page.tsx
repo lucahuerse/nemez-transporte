@@ -52,7 +52,7 @@ export default function Home() {
     <main className="min-h-screen">
       <JsonLd data={structuredData} />
       <Header 
-        theme="light" 
+        theme="dark" 
         navItems={[
           { 
             label: "Leistungen", 
