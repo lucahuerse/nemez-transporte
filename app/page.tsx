@@ -82,6 +82,7 @@ export default function Home() {
             primaryText="Jetzt Angebot einholen!" 
             secondaryText="100% unverbindlich" 
             icon={ArrowRight}
+            iconClassName="hidden md:block"
             href="#contact" 
             className="w-full sm:w-fit bg-foreground text-white hover:bg-foreground/90 "
         />

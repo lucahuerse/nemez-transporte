@@ -8,6 +8,7 @@ interface CustomButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement
     secondaryText?: string;
     href?: string;
     icon?: React.ElementType;
+    iconClassName?: string;
     variant?: "primary" | "outline";
 }
 
@@ -17,6 +18,7 @@ export function CustomButton({
     className,
     href,
     icon: Icon,
+    iconClassName,
     onClick,
     variant = "primary",
     type = "button",
@@ -24,7 +26,7 @@ export function CustomButton({
 }: CustomButtonProps) {
     const content = (
         <span className="flex items-center justify-center gap-3">
-            {Icon && <Icon className="w-5 h-5" />}
+            {Icon && <Icon className={cn("w-6 h-6 shrink-0", iconClassName)} />}
             {primaryText && (
                 <span className="flex flex-col justify-center gap-0">
                     <span className="text-base leading-tight">{primaryText}</span>
@@ -34,11 +36,11 @@ export function CustomButton({
         </span>
     );
 
-    const paddingClasses = Icon ? "px-6" : "px-6 sm:px-10";
-    const baseStyles = `hover:cursor-pointer font-semibold ${paddingClasses} py-4 h-14 rounded-sm transition-all`;
+    const paddingClasses = Icon ? "pl-4 pr-10" : "px-6 sm:px-10";
+    const baseStyles = `hover:cursor-pointer font-semibold ${paddingClasses} py-4 min-h-[3.5rem] rounded-sm transition-all`;
     const variantStyles = {
         primary: "bg-accent hover:bg-accent-hover text-white border-none w-fit",
-        outline: "bg-transparent border-2 border-input hover:bg-transparent backdrop-blur-sm border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent font-medium h-14 rounded-sm"
+        outline: "bg-transparent border-2 border-input hover:bg-transparent backdrop-blur-sm border border-white/40 text-white hover:border-white hover:text-white hover:bg-transparent font-medium min-h-[3.5rem] rounded-sm"
     };
 
     if (href) {

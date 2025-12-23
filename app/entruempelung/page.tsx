@@ -61,6 +61,7 @@ export default function EntruempelungPage() {
             primaryText="Besichtigung anfordern" 
             secondaryText="Kostenlos & unverbindlich" 
             icon={ArrowRight}
+            iconClassName="hidden md:block"
             href="#contact-form" 
             className="w-full sm:w-fit bg-foreground text-white hover:bg-foreground/90 "
         />
