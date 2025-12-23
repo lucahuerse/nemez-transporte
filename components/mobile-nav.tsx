@@ -51,7 +51,7 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
       </SheetTrigger>
       <SheetContent 
         side="top" 
-        className="bg-black border-none text-white p-0 [&>button]:text-white [&>button]:top-6 [&>button]:right-4 [&>button>svg]:w-8 [&>button>svg]:h-8 [&>button>svg]:stroke-[1.5] [&>button]:focus:!ring-0 [&>button]:focus:!ring-offset-0 [&>button]:focus:!outline-none [&>button]:focus:!border-none"
+        className="bg-foreground border-none text-brand-cream p-0 [&>button]:text-brand-cream [&>button]:top-6 [&>button]:right-4 [&>button>svg]:w-8 [&>button>svg]:h-8 [&>button>svg]:stroke-[1.5] [&>button]:focus:!ring-0 [&>button]:focus:!ring-offset-0 [&>button]:focus:!outline-none [&>button]:focus:!border-none"
       >
         <SheetHeader className="sr-only">
           <SheetTitle>Menü</SheetTitle>
@@ -76,7 +76,7 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
             item.children ? (
               <Accordion type="single" collapsible key={item.label} className="w-full border-b-0">
                 <AccordionItem value={item.label} className="border-b-0">
-                  <AccordionTrigger className="text-xl font-medium text-white hover:text-white/80 py-0 hover:no-underline">
+                  <AccordionTrigger className="text-xl font-medium text-brand-cream hover:text-brand-cream/80 py-0 hover:no-underline">
                     {item.label}
                   </AccordionTrigger>
                   <AccordionContent>
@@ -85,7 +85,7 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="text-xl text-white/80 hover:text-white transition-colors"
+                          className="text-xl text-brand-cream/80 hover:text-brand-cream transition-colors"
                           onClick={() => setOpen(false)}
                         >
                           {child.label}
