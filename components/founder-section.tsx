@@ -32,8 +32,8 @@ export function FounderSection() {
                   wir Ihnen eine optimale Transportmöglichkeit für Ihre Güter an.
                 </p>
                 <p>
-                  Bei uns stimmt das <span className="font-bold text-white bg-accent px-1">Preis-Leistungs-Verhältnis</span> und die{" "}
-                  <span className="font-bold text-white bg-accent px-1">Qualität</span>. Wir sind flexibel und zuverlässig.
+                  Bei uns stimmt das <span className="font-bold text-white rounded-sm bg-accent px-1">Preis-Leistungs-Verhältnis</span> und die{" "}
+                  <span className="font-bold text-white rounded-sm bg-accent px-1">Qualität</span>. Wir sind flexibel und zuverlässig.
                 </p>
               </blockquote>
             </div>
