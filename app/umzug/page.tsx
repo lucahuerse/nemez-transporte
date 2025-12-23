@@ -1,4 +1,6 @@
-import { ServiceHero } from "@/components/service-hero"
+import { HeroSection } from "@/components/hero-section"
+import CustomButton from "@/components/custom-button"
+import { ArrowRight } from "lucide-react"
 import { MovingStepsSection } from "@/components/moving-steps-section"
 import { MovingFAQSection } from "@/components/moving-faq-section"
 import { MovingRequestForm } from "@/components/moving-request-form"
@@ -49,12 +51,20 @@ export default function UmzugPage() {
         ctaText="Jetzt Umzug planen" 
         ctaHref="#contact-form"
       />
-      <ServiceHero
+      <HeroSection
         title="Umzugsservice in Stuttgart und Umgebung"
-        subtitle="Wir unterstützen Sie bei Ihrem Umzug – egal ob Privatumzug oder Firmenumzug. Unser erfahrenes Team kümmert sich um den sicheren Transport Ihres Hab und Guts, damit Sie entspannt in Ihr neues Zuhause oder Büro starten können."
+        description="Wir unterstützen Sie bei Ihrem Umzug – egal ob Privatumzug oder Firmenumzug. Unser erfahrenes Team kümmert sich um den sicheren Transport Ihres Hab und Guts, damit Sie entspannt in Ihr neues Zuhause oder Büro starten können."
         image="/images/umzug.webp"
         imageAlt="Umzugsservice Stuttgart"
-      />
+      >
+        <CustomButton 
+            primaryText="Jetzt Umzug planen" 
+            secondaryText="Kostenlos & unverbindlich" 
+            icon={ArrowRight}
+            href="#contact-form" 
+            className="w-full sm:w-fit bg-primary text-primary-foreground hover:bg-primary/90 "
+        />
+      </HeroSection>
       
       <MovingStepsSection />
       

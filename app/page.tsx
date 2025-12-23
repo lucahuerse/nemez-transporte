@@ -1,6 +1,8 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { ServicesSection } from "@/components/services-section"
+import CustomButton from "@/components/custom-button"
+import { ArrowRight } from "lucide-react"
 import { AboutSection } from "@/components/about-section"
 import { CTASection } from "@/components/cta-section"
 import { FounderSection } from "@/components/founder-section"
@@ -70,7 +72,20 @@ export default function Home() {
         ctaText="Jetzt unverbindlich anfragen"
         ctaHref="#contact"
       />
-      <HeroSection />
+      <HeroSection 
+        title="Transporte und Umzüge in Stuttgart und Umgebung"
+        description="Seit vielen Jahren Ihr zuverlässiger Partner für Kleintransporte und Umzüge. Alles aus einer Hand."
+        image="/images/hero-van.webp"
+        imageAlt="Nemez Transporte Van"
+      >
+        <CustomButton 
+            primaryText="Jetzt Angebot einholen!" 
+            secondaryText="100% unverbindlich" 
+            icon={ArrowRight}
+            href="#contact" 
+            className="w-full sm:w-fit bg-primary text-primary-foreground hover:bg-primary/90 "
+        />
+      </HeroSection>
       <ServicesSection />
       <AboutSection />
       <CTASection />

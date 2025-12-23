@@ -1,4 +1,6 @@
-import { ServiceHero } from "@/components/service-hero"
+import { HeroSection } from "@/components/hero-section"
+import CustomButton from "@/components/custom-button"
+import { ArrowRight } from "lucide-react"
 import { TransportStepsSection } from "@/components/transport-steps-section"
 import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
@@ -51,12 +53,20 @@ export default function ExpressPage() {
         ctaText="Jetzt Angebot anfordern" 
         ctaHref="#contact-form"
       />
-      <ServiceHero
+      <HeroSection
         title="Expresstransport & Kurierfahrten in Stuttgart"
-        subtitle="Wenn es schnell gehen muss: Unser Eiltransport und Expressservice für Ihre dringenden Sendungen. Ob Expresslieferung oder Over-night-Transport – wir sind zuverlässig, sicher und sofort einsatzbereit."
+        description="Wenn es schnell gehen muss: Unser Eiltransport und Expressservice für Ihre dringenden Sendungen. Ob Expresslieferung oder Over-night-Transport – wir sind zuverlässig, sicher und sofort einsatzbereit."
         image="/images/kleintransport.webp"
         imageAlt="Expresstransport Stuttgart"
-      />
+      >
+        <CustomButton 
+            primaryText="Jetzt Angebot anfordern" 
+            secondaryText="Sofortige Rückmeldung" 
+            icon={ArrowRight}
+            href="#contact-form" 
+            className="w-full sm:w-fit bg-primary text-primary-foreground hover:bg-primary/90 "
+        />
+      </HeroSection>
       
       <TransportStepsSection />
       

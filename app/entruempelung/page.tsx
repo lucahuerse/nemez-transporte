@@ -1,4 +1,6 @@
-import { ServiceHero } from "@/components/service-hero"
+import { HeroSection } from "@/components/hero-section"
+import CustomButton from "@/components/custom-button"
+import { ArrowRight } from "lucide-react"
 import { EntruempelungStepsSection } from "@/components/entruempelung-steps-section"
 import { EntruempelungFAQSection } from "@/components/entruempelung-faq-section"
 import { EntruempelungRequestForm } from "@/components/entruempelung-request-form"
@@ -49,12 +51,20 @@ export default function EntruempelungPage() {
         ctaText="Besichtigung anfordern" 
         ctaHref="#contact-form"
       />
-      <ServiceHero
+      <HeroSection
         title="Entrümpelung & Wohnungsauflösung in Stuttgart"
-        subtitle="Wir schaffen Platz! Egal ob Keller, Dachboden oder die komplette Wohnung – wir entrümpeln schnell, zuverlässig und hinterlassen alles besenrein. Inklusive transparenter Festpreisgarantie und Wertanrechnung."
+        description="Wir schaffen Platz! Egal ob Keller, Dachboden oder die komplette Wohnung – wir entrümpeln schnell, zuverlässig und hinterlassen alles besenrein. Inklusive transparenter Festpreisgarantie und Wertanrechnung."
         image="/images/entruempelung.webp"
         imageAlt="Entrümpelung Stuttgart"
-      />
+      >
+        <CustomButton 
+            primaryText="Besichtigung anfordern" 
+            secondaryText="Kostenlos & unverbindlich" 
+            icon={ArrowRight}
+            href="#contact-form" 
+            className="w-full sm:w-fit bg-primary text-primary-foreground hover:bg-primary/90 "
+        />
+      </HeroSection>
       
       <EntruempelungStepsSection />
       

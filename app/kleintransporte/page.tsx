@@ -1,4 +1,6 @@
-import { ServiceHero } from "@/components/service-hero"
+import { HeroSection } from "@/components/hero-section"
+import CustomButton from "@/components/custom-button"
+import { ArrowRight } from "lucide-react"
 import { TransportStepsSection } from "@/components/transport-steps-section"
 import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
@@ -55,12 +57,20 @@ export default function KleintransportePage() {
         ctaText="Jetzt Angebot anfordern" 
         ctaHref="#contact-form"
       />
-      <ServiceHero
+      <HeroSection
         title="Kleintransporte in Stuttgart und Umgebung"
-        subtitle="Wir bieten Ihnen professionelle Dienstleistungen für Kleintransporte, um Ihnen den Transport von sperrigen Gegenständen oder Kleinigkeiten, die nicht in einen herkömmlichen PKW passen, zu erleichtern."
+        description="Wir bieten Ihnen professionelle Dienstleistungen für Kleintransporte, um Ihnen den Transport von sperrigen Gegenständen oder Kleinigkeiten, die nicht in einen herkömmlichen PKW passen, zu erleichtern."
         image="/images/kleintransport.webp"
         imageAlt="Kleintransport Stuttgart"
-      />
+      >
+        <CustomButton 
+            primaryText="Jetzt Angebot anfordern" 
+            secondaryText="Kostenlos & unverbindlich" 
+            icon={ArrowRight}
+            href="#contact-form" 
+            className="w-full sm:w-fit bg-primary text-primary-foreground hover:bg-primary/90 "
+        />
+      </HeroSection>
       
       <TransportStepsSection />
       
