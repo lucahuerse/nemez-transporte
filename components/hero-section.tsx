@@ -47,7 +47,7 @@ export function HeroSection() {
 
         {/* Right Image */}
         <div className="w-full md:flex-1 flex flex-col justify-center items-center md:items-stretch overflow-hidden relative min-h-[300px] md:min-h-0">
-             <div className="relative w-full h-full rounded-3xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-1000 delay-300 fill-mode-both"> 
+             <div className="relative w-full h-[300px] md:h-full rounded-3xl overflow-hidden animate-in fade-in slide-in-from-right-8 duration-1000 delay-300 fill-mode-both"> 
                 <Image 
                   fetchPriority="high" 
                   src="/images/hero-van.webp" 
