@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { ChevronDown } from "lucide-react"
+import TopBar from "./top-bar"
 
 interface NavItem {
   label: string
@@ -42,6 +43,7 @@ export function Header({
 
   return (
     <header className="relative z-50">
+      <TopBar />
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image src={logoSrc} alt="Nemez Transporte" width={180} height={50} className="h-12 w-auto" priority />
