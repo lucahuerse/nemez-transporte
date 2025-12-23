@@ -88,8 +88,8 @@ export default function Home() {
       </HeroSection>
       <ServicesSection />
       <AboutSection />
-      <CTASection />
       <FounderSection />
+      <CTASection />
       <FAQSection />
       <HelpSection />
       <Footer />
