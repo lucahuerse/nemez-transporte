@@ -18,7 +18,7 @@ export default async function LegalDocument({ title, fileName }: LegalDocumentPr
   }
 
   return (
-    <div className="bg-white dark:bg-zinc-950 py-24 sm:py-32">
+    <div className="bg-background dark:bg-zinc-950 py-24 sm:py-32">
       <div className="mx-auto max-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl mb-12">
