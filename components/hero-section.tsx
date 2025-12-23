@@ -4,11 +4,11 @@ import { Star, ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100dvh-5rem)] flex flex-col justify-center bg-background overflow-hidden">
+    <section className="relative min-h-[calc(100vh-120px)] flex flex-col justify-center bg-background overflow-hidden py-12 md:py-24">
       
-      <div className="w-full px-6 md:px-8 lg:px-20 flex flex-col md:flex-row items-stretch gap-8 lg:gap-12 py-12 md:py-0">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row items-stretch gap-8 lg:gap-12">
         {/* Left Content */}
-        <div className="w-full md:flex-1 flex flex-col justify-center items-center md:items-start md:text-left z-10 transition-all">
+        <div className="w-full md:flex-1 flex flex-col justify-center items-start text-left z-10 transition-all">
           <h1 className="text-4xl sm:text-5xl lg:text-[64px] tracking-tight font-bold text-primary mb-6 text-balance animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
             Transporte und Umzüge in Stuttgart und Umgebung
           </h1>
