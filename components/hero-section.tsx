@@ -1,14 +1,14 @@
 import Image from "next/image"
 import CustomButton from "@/components/custom-button"
-import { Star } from "lucide-react"
+import { Star, ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[100dvh] pt-12 sm:pt-8 flex flex-col justify-center bg-background overflow-hidden">
+    <section className="relative min-h-[calc(100dvh-5rem)] flex flex-col justify-center bg-background overflow-hidden">
       
       <div className="w-full px-6 md:px-8 lg:px-20 flex flex-col md:flex-row items-stretch gap-8 lg:gap-12 py-12 md:py-0">
         {/* Left Content */}
-        <div className="w-full md:flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 transition-all">
+        <div className="w-full md:flex-1 flex flex-col justify-center items-center md:items-start md:text-left z-10 transition-all">
           <h1 className="text-4xl sm:text-5xl lg:text-[64px] tracking-tight font-bold text-primary mb-6 text-balance animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
             Transporte und Umzüge in Stuttgart und Umgebung
           </h1>
@@ -17,7 +17,7 @@ export function HeroSection() {
           </p>
 
           {/* Social Proof / Reviews */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both">
+          <div className="hidden md:flex flex-col sm:flex-row items-center gap-4 mb-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both">
             <div className="flex -space-x-3">
                {[1, 2, 3, 4].map((i) => (
                  <div key={i} className="relative w-10 h-10 rounded-full border-2 border-background overflow-hidden bg-gray-200">
@@ -39,8 +39,9 @@ export function HeroSection() {
             <CustomButton 
                 primaryText="Jetzt Angebot einholen!" 
                 secondaryText="100% unverbindlich" 
+                icon={ArrowRight}
                 href="#contact" 
-                className="w-full sm:w-fit bg-primary text-primary-foreground hover:bg-primary/90"
+                className="w-full sm:w-fit bg-primary text-primary-foreground hover:bg-primary/90 "
             />
           </div>
         </div>
