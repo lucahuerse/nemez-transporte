@@ -3,7 +3,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 export const metadata = {
-  title: 'Datenschutzerklärung | NEMEZ TRANSPORTE',
+  title: 'Datenschutzerklärung',
   description: 'Datenschutzerklärung und Informationen zum Datenschutz von NEMEZ TRANSPORTE.',
 };
 
@@ -11,7 +11,7 @@ export default function DatenschutzPage() {
   return (
     <main className="min-h-screen flex flex-col">
       <Header 
-        theme="dark" 
+        theme="transparent" 
         navItems={[
           { 
             label: "Leistungen", 
@@ -26,7 +26,7 @@ export default function DatenschutzPage() {
           { label: "FAQ", href: "#faq" }
         ]}
         ctaText="Jetzt unverbindlich anfragen"
-        ctaHref="#contact"
+        ctaHref="/#contact"
       />
       <div className="flex-grow">
         <LegalDocument 
