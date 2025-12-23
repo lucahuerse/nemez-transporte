@@ -76,7 +76,7 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
             item.children ? (
               <Accordion type="single" collapsible key={item.label} className="w-full border-b-0">
                 <AccordionItem value={item.label} className="border-b-0">
-                  <AccordionTrigger className="text-lg font-medium text-white hover:text-white/80 py-0 hover:no-underline">
+                  <AccordionTrigger className="text-xl font-medium text-white hover:text-white/80 py-0 hover:no-underline">
                     {item.label}
                   </AccordionTrigger>
                   <AccordionContent>
@@ -85,7 +85,7 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="text-base text-white/80 hover:text-white transition-colors"
+                          className="text-xl text-white/80 hover:text-white transition-colors"
                           onClick={() => setOpen(false)}
                         >
                           {child.label}
@@ -99,7 +99,7 @@ export function MobileNav({ navItems, ctaText, ctaHref, isLight }: MobileNavProp
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-lg font-medium transition-colors text-white hover:text-white/80"
+                className="text-xl font-medium transition-colors text-white hover:text-white/80"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
