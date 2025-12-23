@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export function Footer() {
   return (
-    <footer id="kontakt" className="bg-primary text-primary-foreground py-12">
+    <footer id="kontakt" className="bg-foreground text-brand-cream py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -18,7 +18,7 @@ export function Footer() {
                 className="h-18 w-auto"
               />
             </div>
-            <p className="text-sm text-primary-foreground/60 mb-6 max-w-md text-balance">
+            <p className="text-sm text-brand-cream mb-6 max-w-md text-balance">
               Ihr Partner für Kleintransporte und Umzüge in Stuttgart und Umgebung
             </p>
           </div>
@@ -29,15 +29,15 @@ export function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-accent shrink-0" />
-                <Link href="tel:01622618418" className="hover:text-accent transition-colors text-primary-foreground/80">0162 2618418</Link>
+                <Link href="tel:01622618418" className="hover:text-accent transition-colors text-brand-cream">0162 2618418</Link>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-accent shrink-0" />
-                <Link href="mailto:m.nemez@nemez-transporte.de" className="hover:text-accent transition-colors text-primary-foreground/80">m.nemez@nemez-transporte.de</Link>
+                <Link href="mailto:m.nemez@nemez-transporte.de" className="hover:text-accent transition-colors text-brand-cream">m.nemez@nemez-transporte.de</Link>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-accent shrink-0" />
-                <Link href="https://www.google.com/maps/place/Beim+Fasanengarten+44,+70499+Stuttgart" className="hover:text-accent transition-colors text-primary-foreground/80">Beim Fasanengarten 44, 70499 Stuttgart</Link>
+                <Link href="https://www.google.com/maps/place/Beim+Fasanengarten+44,+70499+Stuttgart" className="hover:text-accent transition-colors text-brand-cream">Beim Fasanengarten 44, 70499 Stuttgart</Link>
               </li>
               <li className="flex items-center gap-2 md:hidden">
                 <Instagram className="h-4 w-4 text-accent shrink-0" />
@@ -50,10 +50,10 @@ export function Footer() {
           <div className="hidden md:block">
             <h3 className="font-semibold mb-4 text-lg">Leistungen</h3>
             <ul className="space-y-4 text-sm">
-              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/kleintransporte">Kleintransporte</Link></li>
-              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/express">Expresstransport</Link></li>
-              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/umzug">Umzugsservice</Link></li>
-              <li className="text-primary-foreground/80"><Link className="hover:text-accent transition-colors" href="/entruempelung">Entrümpelungen</Link></li>
+              <li className="text-brand-cream"><Link className="hover:text-accent transition-colors" href="/kleintransporte">Kleintransporte</Link></li>
+              <li className="text-brand-cream"><Link className="hover:text-accent transition-colors" href="/express">Expresstransport</Link></li>
+              <li className="text-brand-cream"><Link className="hover:text-accent transition-colors" href="/umzug">Umzugsservice</Link></li>
+              <li className="text-brand-cream"><Link className="hover:text-accent transition-colors" href="/entruempelung">Entrümpelungen</Link></li>
             </ul>
           </div>
 
@@ -61,12 +61,12 @@ export function Footer() {
           <div className="hidden md:block">
             <h3 className="font-semibold mb-4 text-lg">Socials</h3>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-center gap-2 text-primary-foreground/80"><Instagram className="h-4 w-4 text-accent shrink-0" /><Link className="hover:text-accent transition-colors" href="https://www.instagram.com/nemez_transporte/">Instagram</Link></li>
+              <li className="flex items-center gap-2 text-brand-cream"><Instagram className="h-4 w-4 text-accent shrink-0" /><Link className="hover:text-accent transition-colors" href="https://www.instagram.com/nemez_transporte/">Instagram</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 text-sm text-primary-foreground/60">
+        <div className="border-t border-brand-cream/10 pt-8 text-sm text-brand-cream/80">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© {new Date().getFullYear()} Nemez Transporte. Alle Rechte vorbehalten.</p>
             <div className="flex items-center gap-4">

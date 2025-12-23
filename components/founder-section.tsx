@@ -4,7 +4,7 @@ export function FounderSection() {
   return (
     <section id="founder" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="mx-auto">
+        <div className="mx-auto max-w-6xl bg-card rounded-2xl p-6 md:p-12">
           <div className="grid md:grid-cols-[auto_1fr] gap-8 items-start">
             <div className="flex items-center gap-6 md:block">
               <Image

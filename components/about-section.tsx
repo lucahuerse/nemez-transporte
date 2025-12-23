@@ -11,7 +11,7 @@ export function AboutSection() {
                 src="/images/team.webp"
                 alt="Unser Team"
                 fill
-                className="rounded-lg object-cover"
+                className="rounded-xl object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />

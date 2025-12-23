@@ -42,7 +42,7 @@ export function Header({
   const logoSrc = isLight ? "/images/logo-white.webp" : "/images/logo-dark.png"
 
   return (
-    <header className="relative z-50">
+    <header className="relative z-50 bg-brand-cream">
       <TopBar />
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center">
@@ -99,7 +99,7 @@ export function Header({
                 "hidden lg:inline-flex shadow-none border-0",
                  isLight 
                     ? "bg-white text-black hover:bg-white/90" 
-                    : "bg-[#1a1a1a] text-white hover:bg-[#333]"
+                    : "bg-foreground text-white hover:bg-foreground/90"
               )} 
             /> 
 

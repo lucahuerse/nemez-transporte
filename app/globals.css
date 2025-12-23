@@ -7,7 +7,7 @@
 :root {
   /* Main palette: Black backgrounds, white text, gold accent */
   --background: oklch(0.98 0 0);
-  --foreground: oklch(0.15 0 0);
+  --foreground: #1a1a1a;
   --card: #fff;
   --card-foreground: oklch(0.15 0 0);
   --popover: oklch(1 0 0);
@@ -24,6 +24,7 @@
 
   /* Brand colors */
   --brand-light: #F2F2F2;
+  --brand-cream: #EFEBE5;
 
   /* Muted gray tones */
   --muted: #f8f8f8;
@@ -108,6 +109,9 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-foreground: var(--accent-foreground);
   --color-brand-light: var(--brand-light);
+  --color-brand-light: var(--brand-light);
+  --color-brand-cream: var(--brand-cream);
+  --color-brand-dark: var(--brand-dark);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);

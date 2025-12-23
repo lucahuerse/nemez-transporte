@@ -14,8 +14,8 @@ export function SocialProof({ className, variant = "default" }: SocialProofProps
   return (
     <div className={cn("flex flex-col sm:flex-row items-center gap-4 mb-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both", className)}>
       <div className="flex -space-x-3">
-         {[1, 2, 3, 4].map((i) => (
-           <div key={i} className={cn("relative w-10 h-10 rounded-full border-2 overflow-hidden bg-gray-200", isLight ? "border-transparent" : "border-background")}>
+         {[1, 2, 3].map((i) => (
+           <div key={i} className={cn("relative w-10 h-10 rounded-full border-2 overflow-hidden bg-gray-200", isLight ? "border-transparent" : "border-brand-cream")}>
               <Image src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" fill className="object-cover" unoptimized/>
            </div>
          ))}

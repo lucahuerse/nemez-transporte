@@ -43,11 +43,11 @@ export function FAQSection() {
             Sie haben Fragen? Vielleicht ist die passende Antwort schon dabei.
           </p>
 
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full px-4">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left font-semibold text-lg py-6 hover:cursor-pointer">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed text-base">{faq.answer}</AccordionContent>
+                <AccordionTrigger className="text-left font-semibold text-xl py-6 hover:cursor-pointer">{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-lg leading-relaxed">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

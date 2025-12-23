@@ -3,7 +3,7 @@ import { Phone, Mail, Instagram } from "lucide-react"
 
 export default function TopBar() {
   return (
-    <div className="bg-[#1a1a1a] text-white py-2 text-xs md:text-sm relative z-50">
+    <div className="bg-foreground text-brand-cream py-2 text-xs md:text-sm relative z-50">
       <div className="container mx-auto px-4 flex flex-row justify-between items-center md:gap-2">
         {/* Social Links */}
         <div className="flex items-center gap-4">

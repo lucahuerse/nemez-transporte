@@ -20,7 +20,7 @@ export function HeroSection({
   className 
 }: HeroSectionProps) {
   return (
-    <section className={cn("relative min-h-[calc(100vh-120px)] flex flex-col justify-center bg-background overflow-hidden py-12 md:py-24", className)}>
+    <section className={cn("relative min-h-[calc(100vh-120px)] flex flex-col justify-center bg-brand-cream overflow-hidden py-12 md:py-24", className)}>
       
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-stretch gap-8 lg:gap-12">
         {/* Left Content */}

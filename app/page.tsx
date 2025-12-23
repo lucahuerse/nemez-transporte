@@ -83,7 +83,7 @@ export default function Home() {
             secondaryText="100% unverbindlich" 
             icon={ArrowRight}
             href="#contact" 
-            className="w-full sm:w-fit bg-primary text-primary-foreground hover:bg-primary/90 "
+            className="w-full sm:w-fit bg-foreground text-white hover:bg-foreground/90 "
         />
       </HeroSection>
       <ServicesSection />
